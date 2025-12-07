@@ -7,141 +7,41 @@
   padding-bottom: 8px;
 }
 
+/* --- MOBILE FIRST (default) ----------------------------------- */
+
 header {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   gap: 16px;
-  margin-bottom: 28px;
-  padding: 10px 18px;
+  margin-bottom: 18px;
+  padding: 8px 10px;
   border-radius: 999px;
   background: rgba(248, 250, 252, 0.94);
   border: 1px solid rgba(148, 163, 184, 0.35);
-  box-shadow: 0 14px 32px rgba(15, 23, 42, 0.12);
-  -webkit-backdrop-filter: blur(18px);
-  backdrop-filter: blur(18px);
+  box-shadow: 0 10px 24px rgba(15, 23, 42, 0.12);
 }
 
-/* Brand --------------------------------------------------------- */
-
-.brand {
-  display: flex;
-  align-items: center;
-  gap: 10px;
+/* hide brand + nav by default (mobile) */
+.brand,
+.pill,
+.nav-links {
+  display: none;
 }
-
-.brand-mark {
-  width: 32px;
-  height: 32px;
-  border-radius: 999px;
-  background: conic-gradient(from 180deg, #2563eb, #60a5fa, #bfdbfe, #2563eb);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 10px 20px rgba(37, 99, 235, 0.38);
-}
-
-.brand-mark span {
-  font-size: 16px;
-  font-weight: 700;
-  color: #f9fafb;
-}
-
-.brand-text {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-}
-
-.brand-name {
-  font-size: 18px;
-  font-weight: 650;
-  letter-spacing: 0.02em;
-}
-
-.brand-tagline {
-  font-size: 12px;
-  color: var(--text-soft);
-}
-
-/* Nav layout ---------------------------------------------------- */
 
 .header-nav {
+  width: 100%;
   display: flex;
-  align-items: center;
-  gap: 18px;
-  font-size: 13px;
+  justify-content: center;
 }
 
-/* “Built for Canadians” pill ----------------------------------- */
-
-.pill {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  padding: 4px 10px;
-  border-radius: 999px;
-  background: #e0f2fe;
-  color: #0369a1;
-  font-size: 11px;
-  border: 1px solid #bae6fd;
-  white-space: nowrap;
-}
-
-.pill-dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 999px;
-  background: #22c55e;
-  box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.16);
-}
-
-/* Nav links ----------------------------------------------------- */
-
-.nav-links {
-  display: flex;
-  align-items: center;
-  gap: 18px;
-}
-
-.nav-links a {
-  color: var(--text-muted);
-  text-decoration: none;
-  padding: 4px 0;
-  position: relative;
-  transition: color 0.2s ease, transform 0.2s ease;
-}
-
-.nav-links a::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: -4px;
-  height: 2px;
-  border-radius: 999px;
-  background: linear-gradient(to right, #2563eb, #60a5fa);
-  transform: scaleX(0);
-  transform-origin: center;
-  transition: transform 0.22s ease-out;
-}
-
-.nav-links a:hover {
-  color: var(--primary-strong);
-  transform: translateY(-1px);
-}
-
-.nav-links a:hover::after {
-  transform: scaleX(1);
-}
-
-/* App Store style CTA ------------------------------------------ */
+/* App Store style CTA (mobile & desktop) ------------------------ */
 
 .nav-store-btn {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  padding: 6px 14px;
+  padding: 10px 18px;
   border-radius: 999px;
   background: #020617;
   color: #f9fafb;
@@ -150,12 +50,14 @@ header {
   border: 1px solid #020617;
   white-space: nowrap;
   transition: transform 0.16s ease, box-shadow 0.16s ease, background 0.16s ease;
+  justify-content: center;
+  max-width: 420px;
+  margin: 0 auto;
 }
 
 .nav-store-btn:hover {
   transform: translateY(-1px);
   box-shadow: 0 18px 40px rgba(15, 23, 42, 0.6);
-  background: #020617;
 }
 
 .nav-store-icon {
@@ -177,74 +79,139 @@ header {
 }
 
 .nav-store-eyebrow {
-  font-size: 9px;
+  font-size: 8px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   opacity: 0.9;
 }
 
 .nav-store-label {
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 600;
 }
 
-/* Mobile nav tweaks --------------------------------------------- */
-@media (max-width: 768px) {
-  .shell {
-    padding: 12px 12px 44px;
-  }
+/* --- DESKTOP / LARGE SCREENS ---------------------------------- */
 
-  .shell-header-wrap {
-    position: sticky; /* keep it sticky */
-    top: 0;
-    z-index: 40;
-    padding: 8px 0 10px;
-  }
-
+@media (min-width: 769px) {
   header {
-    margin-bottom: 16px;
-    padding: 8px 10px;
-    border-radius: 999px;
-    box-shadow: 0 10px 24px rgba(15, 23, 42, 0.12);
-    background: rgba(248, 250, 252, 0.94);
+    justify-content: space-between;
+    margin-bottom: 28px;
+    padding: 10px 18px;
+  }
+
+  .brand {
     display: flex;
-    justify-content: center; /* center contents */
+    align-items: center;
+    gap: 10px;
+  }
+
+  .brand-mark {
+    width: 32px;
+    height: 32px;
+    border-radius: 999px;
+    background: conic-gradient(from 180deg, #2563eb, #60a5fa, #bfdbfe, #2563eb);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 10px 20px rgba(37, 99, 235, 0.38);
+  }
+
+  .brand-mark span {
+    font-size: 16px;
+    font-weight: 700;
+    color: #f9fafb;
+  }
+
+  .brand-text {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .brand-name {
+    font-size: 18px;
+    font-weight: 650;
+    letter-spacing: 0.02em;
+  }
+
+  .brand-tagline {
+    font-size: 12px;
+    color: var(--text-soft);
   }
 
   .header-nav {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    gap: 0;
+    gap: 18px;
+    justify-content: flex-end;
   }
 
-  /* hide everything except the store button */
-  .brand,
-  .pill,
+  .pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 10px;
+    border-radius: 999px;
+    background: #e0f2fe;
+    color: #0369a1;
+    font-size: 11px;
+    border: 1px solid #bae6fd;
+    white-space: nowrap;
+  }
+
+  .pill-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 999px;
+    background: #22c55e;
+    box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.16);
+  }
+
   .nav-links {
-    display: none !important;
+    display: flex;
+    align-items: center;
+    gap: 18px;
+  }
+
+  .nav-links a {
+    color: var(--text-muted);
+    text-decoration: none;
+    padding: 4px 0;
+    position: relative;
+    transition: color 0.2s ease, transform 0.2s ease;
+  }
+
+  .nav-links a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -4px;
+    height: 2px;
+    border-radius: 999px;
+    background: linear-gradient(to right, #2563eb, #60a5fa);
+    transform: scaleX(0);
+    transform-origin: center;
+    transition: transform 0.22s ease-out;
+  }
+
+  .nav-links a:hover {
+    color: var(--primary-strong);
+    transform: translateY(-1px);
+  }
+
+  .nav-links a:hover::after {
+    transform: scaleX(1);
   }
 
   .nav-store-btn {
-    margin: 0 auto;
-    flex: 0 1 auto;
-    justify-content: center;
-    padding: 10px 18px;
-    max-width: 420px;
-  }
-}
-
-@media (max-width: 480px) {
-  header {
-    margin-bottom: 14px;
-    padding: 8px 8px;
-  }
-
-  .nav-store-label {
-    font-size: 12px;
+    padding: 6px 14px;
+    max-width: none;
   }
 
   .nav-store-eyebrow {
-    font-size: 8px;
+    font-size: 9px;
+  }
+
+  .nav-store-label {
+    font-size: 13px;
   }
 }
