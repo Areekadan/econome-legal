@@ -169,15 +169,20 @@
         }
       }
 
-      /* HERO */
+      /* HERO – text stacked above hero visual */
 
       .hero {
-        display: grid;
-        grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
-        gap: 40px;
-        align-items: center;
+        margin-top: 8px;
         margin-bottom: 72px;
-        min-height: clamp(520px, 78vh, 720px);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 32px;
+        text-align: center;
+      }
+
+      .hero-text {
+        max-width: 640px;
       }
 
       .hero-text h1 {
@@ -198,12 +203,13 @@
         color: var(--text-muted);
         max-width: 32rem;
         line-height: 1.5;
-        margin-bottom: 18px;
+        margin: 0 auto 18px;
       }
 
       .hero-points {
         display: flex;
         flex-wrap: wrap;
+        justify-content: center;
         gap: 8px;
         margin-bottom: 20px;
       }
@@ -235,6 +241,7 @@
       .hero-actions {
         display: flex;
         flex-wrap: wrap;
+        justify-content: center;
         gap: 10px;
         align-items: center;
         margin-bottom: 10px;
@@ -292,47 +299,58 @@
         font-weight: 500;
       }
 
-      /* HERO VISUAL — big opening image */
+      /* HERO VISUAL – two cards as one composed visual */
 
       .hero-visual {
-        position: relative;
-        width: min(560px, 100%);
-        margin-left: auto;
+        width: 100%;
+        max-width: 880px;
+        padding: 0 12px;
       }
 
-      .hero-shot-main {
+      .hero-canvas {
         position: relative;
+        max-width: 820px;
+        margin: 0 auto;
+        aspect-ratio: 16 / 9;
+      }
+
+      .hero-card-main,
+      .hero-card-secondary {
+        position: absolute;
         border-radius: 32px;
         overflow: hidden;
-        box-shadow: var(--shadow-hero);
         background: #ffffff;
+        box-shadow: var(--shadow-hero);
+      }
+
+      /* Tall “Budgeting, made beautifully simple.” card */
+      .hero-card-main {
+        inset: 4% 24% 10% 4%;
         transform-origin: center;
         animation: heroFloat 8s ease-in-out infinite;
       }
 
-      .hero-shot-main img {
+      .hero-card-main img {
         width: 100%;
+        height: 100%;
+        object-fit: cover;
         display: block;
-        height: auto;
       }
 
-      .hero-shot-secondary {
-        position: absolute;
-        right: -14%;
-        bottom: -10%;
-        width: 58%;
-        max-width: 320px;
-        border-radius: 30px;
-        overflow: hidden;
+      /* Angled dashboard phone card */
+      .hero-card-secondary {
+        inset: 10% 0 4% 46%;
+        transform: rotate(6deg);
         box-shadow: var(--shadow-soft);
-        transform: rotate(5deg);
         opacity: 0;
-        animation: heroSlideIn 0.9s cubic-bezier(0.2, 0.8, 0.2, 1) 0.5s forwards,
-          heroFloatAlt 9s ease-in-out infinite 1.1s;
+        animation: heroSlideIn 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) 0.4s forwards,
+          heroFloatAlt 9s ease-in-out infinite 1.2s;
       }
 
-      .hero-shot-secondary img {
+      .hero-card-secondary img {
         width: 100%;
+        height: 100%;
+        object-fit: cover;
         display: block;
       }
 
@@ -349,43 +367,45 @@
       @keyframes heroFloatAlt {
         0%,
         100% {
-          transform: translateY(0) rotate(5deg);
+          transform: translateY(0) rotate(6deg);
         }
         50% {
-          transform: translateY(-8px) rotate(5deg);
+          transform: translateY(-8px) rotate(6deg);
         }
       }
 
       @keyframes heroSlideIn {
         0% {
           opacity: 0;
-          transform: translate(40px, 20px) rotate(5deg) scale(0.96);
+          transform: translate(32px, 16px) rotate(6deg) scale(0.96);
         }
         100% {
           opacity: 1;
-          transform: translate(0, 0) rotate(5deg) scale(1);
+          transform: translate(0, 0) rotate(6deg) scale(1);
         }
       }
 
-      @media (max-width: 880px) {
+      @media (max-width: 768px) {
         .hero {
-          grid-template-columns: minmax(0, 1fr);
-          min-height: auto;
           margin-bottom: 56px;
         }
 
-        .hero-visual {
-          margin: 12px auto 0;
+        .hero-canvas {
+          aspect-ratio: 9 / 16;
         }
 
-        .hero-shot-secondary {
-          display: none;
+        .hero-card-main {
+          inset: 4% 6% 20% 6%;
+        }
+
+        .hero-card-secondary {
+          inset: 46% 6% 4% 24%;
         }
       }
 
       @media (prefers-reduced-motion: reduce) {
-        .hero-shot-main,
-        .hero-shot-secondary {
+        .hero-card-main,
+        .hero-card-secondary {
           animation: none !important;
           transform: none !important;
           opacity: 1 !important;
@@ -482,7 +502,7 @@
         line-height: 1.45;
       }
 
-      /* Screen stories — images first, copy second, very visual */
+      /* Screen stories */
 
       .screen-section {
         border-radius: var(--radius-lg);
@@ -788,22 +808,22 @@
               </p>
             </div>
 
-            <!-- Big hero visual -->
+            <!-- Composed hero visual -->
             <div class="hero-visual" aria-hidden="true">
-              <div class="hero-shot-main">
-                <!-- Tall “Budgeting, made beautifully simple.” image -->
-                <img
-                  src="assets/screenshots/screen-dashboard-hero-1.png"
-                  alt=""
-                />
-              </div>
+              <div class="hero-canvas">
+                <div class="hero-card-main">
+                  <img
+                    src="assets/screenshots/screen-dashboard-hero-left.png"
+                    alt=""
+                  />
+                </div>
 
-              <!-- Angled dashboard / secondary hero image -->
-              <div class="hero-shot-secondary">
-                <img
-                  src="assets/screenshots/screen-dashboard-hero-2.png"
-                  alt=""
-                />
+                <div class="hero-card-secondary">
+                  <img
+                    src="assets/screenshots/screen-dashboard-hero-right.png"
+                    alt=""
+                  />
+                </div>
               </div>
             </div>
           </section>
@@ -852,7 +872,7 @@
             </div>
           </section>
 
-          <!-- SCREEN STORIES: all 7 images, very visual -->
+          <!-- SCREEN STORIES -->
           <section class="section" id="screens">
             <div class="section-header">
               <div>
@@ -905,7 +925,7 @@
               </div>
             </div>
 
-            <!-- Alerts + reports (2 images) -->
+            <!-- Alerts + reports -->
             <div class="screen-section reveal" data-reveal="up">
               <div class="screen-layout">
                 <div class="screen-shot-duo">
@@ -931,7 +951,7 @@
               </div>
             </div>
 
-            <!-- Deep dive (group + item reports) -->
+            <!-- Deep dive -->
             <div class="screen-section reveal" data-reveal="up">
               <div class="screen-layout reverse">
                 <div class="screen-shot">
