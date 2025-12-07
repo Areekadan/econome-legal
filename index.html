@@ -32,8 +32,8 @@
         --radius-lg: 28px;
         --radius-md: 18px;
 
-        --shadow-soft: 0 20px 50px rgba(15, 23, 42, 0.14);
-        --shadow-sm: 0 14px 30px rgba(15, 23, 42, 0.08);
+        --shadow-soft: 0 24px 60px rgba(15, 23, 42, 0.16);
+        --shadow-sm: 0 14px 32px rgba(15, 23, 42, 0.08);
       }
 
       * {
@@ -57,7 +57,7 @@
 
       .shell {
         width: 100%;
-        max-width: 1080px;
+        max-width: 1120px;
         margin: 0 auto;
         padding: 24px 20px 56px;
       }
@@ -160,10 +160,11 @@
 
       .hero {
         display: grid;
-        grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
-        gap: 36px;
+        grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
+        gap: 40px;
         align-items: center;
-        margin-bottom: 56px;
+        margin-bottom: 64px;
+        min-height: clamp(520px, 78vh, 720px);
       }
 
       @media (max-width: 880px) {
@@ -174,14 +175,16 @@
 
         .hero {
           grid-template-columns: minmax(0, 1fr);
+          min-height: auto;
+          margin-bottom: 48px;
         }
       }
 
       .hero-copy h1 {
-        font-size: clamp(32px, 4vw, 40px);
-        line-height: 1.12;
-        margin: 0 0 10px;
-        letter-spacing: -0.04em;
+        font-size: clamp(34px, 4.3vw, 44px);
+        line-height: 1.05;
+        margin: 0 0 12px;
+        letter-spacing: -0.045em;
       }
 
       .hero-copy h1 span.highlight {
@@ -265,7 +268,7 @@
 
       .btn-primary:hover {
         transform: translateY(-1px);
-        box-shadow: 0 22px 70px rgba(37, 99, 235, 0.4);
+        box-shadow: 0 24px 80px rgba(37, 99, 235, 0.45);
       }
 
       .btn-ghost {
@@ -289,34 +292,34 @@
         font-weight: 500;
       }
 
-      /* HERO PHONES */
+      /* HERO PHONES (bigger, opening-screen feel) */
 
       .hero-phones {
         position: relative;
-        width: min(430px, 100%);
+        width: min(520px, 100%);
         margin-inline: auto;
-        height: 400px;
+        height: 480px;
       }
 
       .hero-phone {
         position: absolute;
-        max-width: 52%;
+        max-width: 58%;
         height: auto;
-        filter: drop-shadow(0 22px 60px rgba(15, 23, 42, 0.24));
+        filter: drop-shadow(0 26px 70px rgba(15, 23, 42, 0.25));
         opacity: 0;
       }
 
       .hero-phone--right {
-        right: -34px;
+        right: -40px;
         top: 40px;
-        transform: translateX(70px) rotate(4deg) scale(0.96);
+        transform: translateX(80px) rotate(4deg) scale(0.96);
         animation: heroPhoneRightIn 0.9s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
       }
 
       .hero-phone--left {
-        left: -34px;
-        bottom: 6px;
-        transform: translateX(-70px) rotate(-3deg) scale(0.96);
+        left: -40px;
+        bottom: 10px;
+        transform: translateX(-80px) rotate(-3deg) scale(0.96);
         animation: heroPhoneLeftIn 0.9s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
         animation-delay: 0.3s;
       }
@@ -324,7 +327,7 @@
       @keyframes heroPhoneRightIn {
         0% {
           opacity: 0;
-          transform: translateX(70px) rotate(4deg) scale(0.96);
+          transform: translateX(80px) rotate(4deg) scale(0.96);
         }
         100% {
           opacity: 1;
@@ -335,7 +338,7 @@
       @keyframes heroPhoneLeftIn {
         0% {
           opacity: 0;
-          transform: translateX(-70px) rotate(-3deg) scale(0.96);
+          transform: translateX(-80px) rotate(-3deg) scale(0.96);
         }
         100% {
           opacity: 1;
@@ -378,7 +381,7 @@
       /* Sections */
 
       .section {
-        margin-bottom: 48px;
+        margin-bottom: 52px;
       }
 
       .section-header {
@@ -694,14 +697,13 @@
               </div>
 
               <h1>
-                A simple
-                <span class="highlight">budgeting app</span>
-                that fits your life.
+                Budgeting,
+                <span class="highlight">made beautifully simple.</span>
               </h1>
 
               <p class="hero-tagline">
-                Connect your bank, set budgets, and let EconoMe keep your money
-                organized in the background.
+                Connect your bank, see where your money goes, and stay on track
+                in minutes a week.
               </p>
 
               <div class="hero-points">
@@ -728,12 +730,12 @@
               </div>
 
               <p class="hero-caption">
-                <strong>No ads. No clutter.</strong> Just a personal finance app
-                that’s easy to stick with.
+                <strong>No ads. No clutter.</strong> Just a budgeting app that’s
+                easy to stick with.
               </p>
             </div>
 
-            <!-- HERO PHONES (animated) -->
+            <!-- HERO PHONES (2 screenshots) -->
             <div class="hero-phones" aria-hidden="true">
               <img
                 src="assets/screenshots/screen-dashboard-hero-1.png"
@@ -752,12 +754,13 @@
           <section class="section" id="features">
             <div class="section-header">
               <div>
-                <div class="section-title">
+                <h2 class="section-title">
                   Everything you need to stay on track
-                </div>
-                <div class="section-sub">
-                  Simple tools that make day-to-day budgeting actually doable.
-                </div>
+                </h2>
+                <p class="section-sub">
+                  Simple tools that make day-to-day budgeting feel calm, not
+                  complicated.
+                </p>
               </div>
             </div>
 
@@ -767,7 +770,7 @@
                 <div class="feature-title">Connected accounts</div>
                 <p class="feature-body">
                   Link your Canadian bank and credit cards once and let EconoMe
-                  pull in new transactions for you.
+                  pull in new transactions automatically.
                 </p>
               </article>
 
@@ -775,8 +778,8 @@
                 <div class="feature-icon">✨</div>
                 <div class="feature-title">Smart categories</div>
                 <p class="feature-body">
-                  Set simple rules for your favourite merchants so spending
-                  lands in the right budget every time.
+                  Set a few rules for your favourite merchants and watch
+                  spending sort itself into the right budgets.
                 </p>
               </article>
 
@@ -784,99 +787,99 @@
                 <div class="feature-icon">📊</div>
                 <div class="feature-title">Clear money reports</div>
                 <p class="feature-body">
-                  See income, expenses, and savings at a glance with clean
-                  monthly and category reports.
+                  See income, expenses, and savings at a glance — no
+                  spreadsheets or manual math.
                 </p>
               </article>
             </div>
           </section>
 
-          <!-- PRODUCT TOUR / SCREENS -->
+          <!-- PRODUCT TOUR / 5 remaining screenshots -->
           <section class="section" id="product">
             <div class="section-header">
               <div>
-                <div class="section-title">See the budgeting app screens</div>
-                <div class="section-sub">
-                  A quick tour of the views you’ll use every week.
-                </div>
+                <h2 class="section-title">See the budgeting app screens</h2>
+                <p class="section-sub">
+                  A quick tour of what you’ll check each week.
+                </p>
               </div>
             </div>
 
             <div class="screens">
-              <!-- Budgets -->
+              <!-- Budgets (Every dollar has a place) -->
               <div class="screen-row reveal">
                 <div class="screen-copy">
                   <div class="screen-tag"><span></span> Budgets</div>
                   <h3>Every dollar has a place.</h3>
                   <p>
-                    Create flexible groups and items so you always know what’s
-                    left in each budget.
+                    Flexible groups and items so you always know what’s left in
+                    each category.
                   </p>
                 </div>
                 <div class="screen-image">
                   <img
                     src="assets/screenshots/screen-budgets-every-dollar.png"
-                    alt="Budgeting app view showing categories and remaining amounts."
+                    alt="EconoMe budgets screen showing categories and remaining amounts."
                   />
                 </div>
               </div>
 
-              <!-- Transactions -->
+              <!-- Transactions (Know exactly where your money goes) -->
               <div class="screen-row screen-row--reverse reveal">
                 <div class="screen-copy">
                   <div class="screen-tag"><span></span> Transactions</div>
                   <h3>Know where your money goes.</h3>
                   <p>
-                    Daily spending, net flow, and categories in one clean
-                    transactions screen.
+                    Daily spending, net flow, and budget impact in one clean
+                    view.
                   </p>
                 </div>
                 <div class="screen-image">
                   <img
                     src="assets/screenshots/screen-transactions-know-money.png"
-                    alt="Transactions screen showing recent purchases and net flow."
+                    alt="EconoMe transactions screen with recent purchases and net flow."
                   />
                 </div>
               </div>
 
-              <!-- Alerts + Reports -->
+              <!-- Alerts + Reports (2 images) -->
               <div class="screen-row reveal">
                 <div class="screen-copy">
                   <div class="screen-tag">
                     <span></span> Alerts &amp; reports
                   </div>
-                  <h3>Stay ahead without doing math.</h3>
+                  <h3>All the insights. None of the math.</h3>
                   <p>
-                    Smart alerts and simple charts help you see trends before
-                    things go off track.
+                    Smart alerts and simple charts keep you ahead of
+                    overspending.
                   </p>
                 </div>
                 <div class="screen-duo">
                   <img
                     src="assets/screenshots/screen-alerts-smart.png"
-                    alt="Budget alerts screen for spending thresholds and safety net."
+                    alt="Budget alerts screen for thresholds and low-balance safety net."
                   />
                   <img
                     src="assets/screenshots/screen-reports-insights-no-math.png"
-                    alt="Money reports screen with income, expenses, and savings trend."
+                    alt="Reports screen showing income, expenses, and savings trend."
                   />
                 </div>
               </div>
 
-              <!-- Drilldown -->
+              <!-- Deep dive (From big picture to every detail) -->
               <div class="screen-row screen-row--reverse reveal">
                 <div class="screen-copy">
                   <div class="screen-tag"><span></span> Deep dive</div>
                   <h3>From big picture to every detail.</h3>
                   <p>
-                    Tap into group and item reports to see exactly which budgets
-                    are working.
+                    Group and item reports show exactly which budgets are
+                    working — and which aren’t.
                   </p>
                 </div>
                 <div class="screen-image">
                   <img
                     src="assets/screenshots/screen-reports-big-picture-detail.png"
-                    alt="Detailed budgeting reports showing group and item insights."
+                    alt="Detailed budgeting reports with group and item-level insights."
                   />
                 </div>
               </div>
@@ -887,10 +890,10 @@
           <section class="section" id="why">
             <div class="section-header">
               <div>
-                <div class="section-title">Why people use EconoMe</div>
-                <div class="section-sub">
+                <h2 class="section-title">Why people use EconoMe</h2>
+                <p class="section-sub">
                   A budgeting app that feels calm instead of overwhelming.
-                </div>
+                </p>
               </div>
             </div>
 
@@ -945,11 +948,11 @@
           <section class="section" id="learn-more">
             <div class="section-header">
               <div>
-                <div class="section-title">Private by design</div>
-                <div class="section-sub">
+                <h2 class="section-title">Private by design</h2>
+                <p class="section-sub">
                   Your money data stays yours. No ads, no selling your
                   information.
-                </div>
+                </p>
               </div>
             </div>
 
