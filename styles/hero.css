@@ -17,51 +17,6 @@
   justify-content: center;
 }
 
-/* EYEBROW + SUPPORT: overlaid on the same hero canvas ------------ */
-
-.hero-eyebrow-pill,
-.hero-support {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  pointer-events: none; /* hero is just visual, no clicks here */
-}
-
-/* tiny eyebrow above the phones */
-.hero-eyebrow-pill {
-  top: clamp(12px, 7vh, 40px);
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 5px 14px;
-  border-radius: 999px;
-  background: rgba(37, 99, 235, 0.08);
-  border: 1px solid rgba(129, 140, 248, 0.35);
-  color: #1d4ed8;
-  font-size: 11px;
-  -webkit-backdrop-filter: blur(16px);
-  backdrop-filter: blur(16px);
-}
-
-.hero-pill-badge {
-  width: 18px;
-  height: 18px;
-  border-radius: 999px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  background: #eff6ff;
-  font-size: 12px;
-}
-
-/* trust line under the phones */
-.hero-support {
-  bottom: clamp(16px, 6vh, 32px);
-  font-size: 12px;
-  color: var(--text-soft);
-  text-align: center;
-}
-
 /* HERO VISUAL – split phones ------------------------------------ */
 
 .hero-visual {
@@ -205,10 +160,6 @@
 
   .hero-screen-half img {
     border-radius: 36px;
-  }
-
-  .hero-support {
-    font-size: 13px;
   }
 }
 
