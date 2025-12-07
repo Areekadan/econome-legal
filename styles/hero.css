@@ -70,7 +70,7 @@
   background: rgba(241, 245, 249, 0.95);
 }
 
-/* no black backing – just the phones with soft shadows */
+/* phones only, no black backing */
 .hero-screen-half {
   flex: 1;
   border-radius: 30px;
@@ -92,7 +92,7 @@
   animation: hero-float 18s ease-in-out infinite;
 }
 
-/* gentle opposing motion per phone */
+/* phones move VERY slightly up/down (no rotation) */
 .hero-screen-half--left {
   animation: hero-phone-left 20s ease-in-out infinite;
 }
@@ -103,37 +103,38 @@
 
 @keyframes hero-float {
   0% {
-    transform: translateY(4px);
+    transform: translateY(2px);
   }
   50% {
-    transform: translateY(-6px);
+    transform: translateY(-4px);
   }
   100% {
-    transform: translateY(4px);
+    transform: translateY(2px);
   }
 }
 
+/* no rotate() here anymore */
 @keyframes hero-phone-left {
   0% {
-    transform: translateY(0) rotate(-1deg);
+    transform: translateY(0);
   }
   50% {
-    transform: translateY(-6px) rotate(-2deg);
+    transform: translateY(-4px);
   }
   100% {
-    transform: translateY(0) rotate(-1deg);
+    transform: translateY(0);
   }
 }
 
 @keyframes hero-phone-right {
   0% {
-    transform: translateY(-4px) rotate(1deg);
+    transform: translateY(-2px);
   }
   50% {
-    transform: translateY(3px) rotate(2deg);
+    transform: translateY(3px);
   }
   100% {
-    transform: translateY(-4px) rotate(1deg);
+    transform: translateY(-2px);
   }
 }
 
