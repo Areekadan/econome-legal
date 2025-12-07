@@ -72,7 +72,7 @@ body {
   position: sticky;
   top: 0;
   z-index: 40;
-  padding-bottom: 6px;
+  padding-bottom: 4px;
 }
 
 header {
@@ -213,15 +213,15 @@ nav a:hover::after {
   header {
     flex-direction: column;
     align-items: stretch;
-    border-radius: 20px;
-    padding: 10px 12px;
+    border-radius: 18px;
+    padding: 8px 10px;
   }
 
   nav {
     flex-wrap: nowrap;
     overflow-x: auto;
-    padding-top: 4px;
-    margin: 0 -4px -4px;
+    padding-top: 2px;
+    margin: 0 -2px -2px;
     gap: 14px;
   }
 
@@ -243,8 +243,8 @@ nav a:hover::after {
 
 .hero-inner {
   display: grid;
-  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
-  gap: 34px;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.95fr);
+  gap: 40px;
   align-items: center;
 }
 
@@ -430,19 +430,21 @@ nav a:hover::after {
 
 /* HERO VISUAL */
 
+/* HERO VISUAL – phones line up as one flat image */
+
 .hero-visual {
   width: 100%;
-  max-width: 420px;
-  margin: 0 auto;
+  max-width: 440px;
+  margin: 24px auto 0;
 }
 
 .hero-frame {
   position: relative;
-  border-radius: 36px;
-  background: rgba(255, 255, 255, 0.96);
+  border-radius: 32px;
+  background: rgba(255, 255, 255, 0.98);
   border: 1px solid rgba(148, 163, 184, 0.35);
   box-shadow: var(--shadow-hero);
-  padding: 26px 24px;
+  padding: 18px 16px;
   overflow: hidden;
   isolation: isolate;
 }
@@ -453,34 +455,32 @@ nav a:hover::after {
   inset: -40%;
   background: radial-gradient(
       circle at 20% 0%,
-      rgba(96, 165, 250, 0.2),
-      transparent 50%
+      rgba(96, 165, 250, 0.15),
+      transparent 55%
     ),
     radial-gradient(
       circle at 80% 100%,
-      rgba(129, 140, 248, 0.24),
+      rgba(129, 140, 248, 0.18),
       transparent 55%
     );
-  opacity: 0.85;
+  opacity: 0.9;
   z-index: -1;
 }
 
 .hero-phones {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 18px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
 }
 
+/* each half sits flush, no tilt */
 .hero-phone {
-  flex: 0 0 46%;
-  max-width: 260px;
-  border-radius: 32px;
+  border-radius: 0;
   overflow: hidden;
-  box-shadow: 0 22px 60px rgba(15, 23, 42, 0.18);
+  box-shadow: none;
   transform-origin: center;
   transition: transform 0.35s cubic-bezier(0.22, 0.61, 0.36, 1),
-    box-shadow 0.3s ease, filter 0.3s ease;
+    filter 0.3s ease;
   will-change: transform;
 }
 
@@ -490,50 +490,39 @@ nav a:hover::after {
   display: block;
 }
 
+/* outer corners rounded so the two halves feel like one card */
 .hero-phone--left {
-  transform: translateY(4px) rotate(-5deg);
-  animation: float-phone-left 14s ease-in-out infinite;
+  border-radius: 24px 0 0 24px;
 }
 
 .hero-phone--right {
-  transform: translateY(-2px) rotate(5deg);
-  margin-left: -32px;
-  animation: float-phone-right 15s ease-in-out infinite;
-  animation-delay: 0.35s;
+  border-radius: 0 24px 24px 0;
+}
+
+/* subtle breathing animation – no rotation */
+@keyframes float-phone {
+  0% {
+    transform: translateY(2px);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
+  100% {
+    transform: translateY(2px);
+  }
+}
+
+.hero-phone--left,
+.hero-phone--right {
+  animation: float-phone 14s ease-in-out infinite;
 }
 
 .hero-phone:hover {
-  transform: translateY(-4px) scale(1.01);
-  box-shadow: 0 30px 90px rgba(15, 23, 42, 0.32);
-  filter: saturate(1.05);
+  transform: translateY(-3px);
+  filter: saturate(1.04);
 }
 
-@keyframes float-phone-left {
-  0% {
-    transform: translateY(3px) rotate(-4deg);
-  }
-  50% {
-    transform: translateY(-5px) rotate(-5deg);
-  }
-  100% {
-    transform: translateY(3px) rotate(-4deg);
-  }
-}
-
-@keyframes float-phone-right {
-  0% {
-    transform: translateY(-2px) rotate(5deg);
-  }
-  50% {
-    transform: translateY(4px) rotate(4deg);
-  }
-  100% {
-    transform: translateY(-2px) rotate(5deg);
-  }
-}
-
-/* HERO MOBILE LAYOUT */
-
+/* HERO MOBILE LAYOUT (phones below text, still puzzle-style) */
 @media (max-width: 768px) {
   .shell {
     padding: 14px 14px 40px;
@@ -546,7 +535,7 @@ nav a:hover::after {
 
   .hero-inner {
     grid-template-columns: minmax(0, 1fr);
-    gap: 32px;
+    gap: 28px;
   }
 
   .hero-text {
@@ -560,26 +549,22 @@ nav a:hover::after {
   }
 
   .hero-visual {
-    max-width: 360px;
+    max-width: 380px;
+    margin-top: 12px;
   }
 
   .hero-frame {
-    padding: 22px 18px 24px;
+    padding: 14px 10px;
+    border-radius: 28px;
   }
 
-  .hero-phone {
-    flex: 0 0 70%;
-    max-width: none;
+  .hero-phones {
+    grid-template-columns: 1fr 1fr;
   }
 
-  .hero-phone--left {
-    display: none;
-  }
-
+  .hero-phone--left,
   .hero-phone--right {
-    margin-left: 0;
-    transform: translateY(2px);
-    animation: float-phone-mobile 14s ease-in-out infinite;
+    animation-duration: 16s;
   }
 }
 
@@ -601,17 +586,9 @@ nav a:hover::after {
     width: 100%;
     justify-content: center;
   }
-}
 
-@keyframes float-phone-mobile {
-  0% {
-    transform: translateY(2px);
-  }
-  50% {
-    transform: translateY(-6px);
-  }
-  100% {
-    transform: translateY(2px);
+  .hero-visual {
+    max-width: 100%;
   }
 }
 
