@@ -1,27 +1,37 @@
-/* Header / nav -------------------------------------------------- */
+/* HEADER WRAP -------------------------------------------------- */
 
-/* Header / nav -------------------------------------------------- */
-
+/* base: sticky container */
 .shell-header-wrap {
   position: sticky;
   top: 0;
   z-index: 40;
   padding-bottom: 8px;
-  /* hidden by default */
-  opacity: 0;
-  transform: translateY(-14px);
-  pointer-events: none;
-  transition: opacity 0.22s ease, transform 0.22s ease;
 }
 
-/* visible state while scrolling */
-.shell-header-wrap.is-active {
-  opacity: 1;
-  transform: translateY(0);
-  pointer-events: auto;
+/* hide header entirely on mobile – hero CTA is enough */
+@media (max-width: 768px) {
+  .shell-header-wrap {
+    display: none;
+  }
 }
 
-/* --- MOBILE FIRST (default) ----------------------------------- */
+/* desktop: hidden by default, only shown while scrolling */
+@media (min-width: 769px) {
+  .shell-header-wrap {
+    opacity: 0;
+    transform: translateY(-14px);
+    pointer-events: none;
+    transition: opacity 0.22s ease, transform 0.22s ease;
+  }
+
+  .shell-header-wrap.is-active {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+}
+
+/* --- MOBILE FIRST (default layout) ---------------------------- */
 
 header {
   display: flex;
@@ -49,39 +59,39 @@ header {
   justify-content: center;
 }
 
-/* --- APP STORE BADGE ------------------------------------------ */
+/* --- APP STORE BADGE (smaller, cleaner) ----------------------- */
 
 .nav-store-btn {
   display: inline-flex;
   align-items: center;
-  gap: 12px;
-  padding: 11px 24px;
+  gap: 10px;
+  padding: 9px 20px; /* smaller than before */
   border-radius: 999px;
-  background: #020618;
-  color: #ffffff;
+  background: #000;
+  color: #fff;
   text-decoration: none;
-  border: 1px solid #020618;
-  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.55);
+  border: 1px solid #000;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.45);
   transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
 
 .nav-store-btn:hover {
   transform: translateY(-1px);
-  box-shadow: 0 22px 50px rgba(15, 23, 42, 0.7);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.55);
 }
 
-/* Apple icon: slightly larger, no box */
+/* Apple icon – a bit bigger but not huge, no box */
 .nav-store-icon {
-  font-size: 30px; /* bigger  */
-  width: 30px;
-  height: 30px;
+  font-size: 24px;
+  width: 24px;
+  height: 24px;
   display: flex;
   align-items: center;
   justify-content: center;
   line-height: 0;
 }
 
-/* text stack – visually centered block */
+/* text stack */
 .nav-store-text {
   display: flex;
   flex-direction: column;
@@ -89,21 +99,21 @@ header {
   line-height: 1;
 }
 
-/* "Download on the" line */
+/* "Download on the" */
 .nav-store-eyebrow {
-  font-size: 11px;
+  font-size: 10px;
   font-weight: 500;
-  letter-spacing: 0.14em; /* wide like Apple */
+  letter-spacing: 0.16em; /* wide, Apple-style */
   text-transform: uppercase;
   opacity: 0.9;
   margin-bottom: 2px;
 }
 
-/* "App Store" line – similar visual width */
+/* "App Store" – tuned so width visually matches line above */
 .nav-store-label {
-  font-size: 17px;
+  font-size: 15px;
   font-weight: 600;
-  letter-spacing: 0.02em; /* slightly stretched */
+  letter-spacing: 0.04em;
 }
 
 /* --- DESKTOP / LARGE SCREENS ---------------------------------- */
@@ -223,8 +233,8 @@ header {
   }
 
   .nav-store-btn {
-    padding: 8px 22px;
-    box-shadow: 0 16px 38px rgba(15, 23, 42, 0.55);
+    padding: 8px 20px; /* slightly denser on desktop */
+    box-shadow: 0 14px 32px rgba(15, 23, 42, 0.55);
   }
 
   .nav-store-eyebrow {
@@ -232,6 +242,6 @@ header {
   }
 
   .nav-store-label {
-    font-size: 16px;
+    font-size: 15px;
   }
 }
