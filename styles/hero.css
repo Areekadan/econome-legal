@@ -1,7 +1,8 @@
 /* HERO ---------------------------------------------------------- */
-/* Mobile-first: text top-left, device below */
+/* Mobile-first: text top-left, phone underneath */
 
 .hero {
+  outline: 1px solid hotpink;
   padding: 24px 0 40px;
   margin-bottom: 0;
 }
@@ -10,7 +11,7 @@
   display: flex;
   flex-direction: column;
   gap: 20px;
-  align-items: flex-start; /* text + phone start from left */
+  align-items: flex-start; /* everything hugs the left */
 }
 
 /* TEXT ---------------------------------------------------------- */
@@ -29,7 +30,7 @@
 
 .hero-title {
   margin: 0;
-  font-size: clamp(26px, 7vw, 32px); /* slightly smaller on mobile */
+  font-size: clamp(26px, 7vw, 32px); /* smaller on mobile */
   line-height: 1.05;
   letter-spacing: -0.045em;
   color: var(--text-main);
@@ -44,30 +45,31 @@
 .hero-visual {
   width: 100%;
   display: flex;
-  justify-content: flex-start; /* phone also hugs the left on mobile */
+  justify-content: flex-start; /* phone also left-aligned on mobile */
 }
 
 .hero-device {
   width: 100%;
-  max-width: 320px; /* smaller on mobile */
-  filter: drop-shadow(0 24px 60px rgba(15, 23, 42, 0.22));
+  max-width: 300px; /* phone size on mobile */
+  margin-top: 6px;
+  filter: drop-shadow(0 22px 60px rgba(15, 23, 42, 0.22));
 }
 
 .hero-device img {
   display: block;
   width: 100%;
   height: auto;
-  border-radius: 32px;
+  border-radius: 36px;
 }
 
-/* Tiny phones (really narrow screens) --------------------------- */
+/* Really narrow phones ------------------------------------------ */
 @media (max-width: 380px) {
   .hero-title {
     font-size: 24px;
   }
 
   .hero-device {
-    max-width: 280px;
+    max-width: 260px;
   }
 }
 
@@ -76,7 +78,7 @@
 @media (min-width: 880px) {
   .hero {
     padding: 56px 0 64px;
-    min-height: calc(100vh - 200px);
+    min-height: calc(100vh - 90px);
     display: flex;
     align-items: center;
   }
@@ -85,11 +87,11 @@
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    gap: 64px;
+    gap: 72px;
   }
 
   .hero-text {
-    max-width: 440px;
+    max-width: 420px;
   }
 
   .hero-title {
@@ -102,6 +104,7 @@
 
   .hero-device {
     max-width: 520px;
+    margin-top: 0;
     filter: drop-shadow(0 32px 80px rgba(15, 23, 42, 0.26));
   }
 
