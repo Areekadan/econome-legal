@@ -87,20 +87,6 @@
   border-radius: 30px;
 }
 
-/* base float for the whole cluster */
-.hero-frame {
-  animation: hero-float 18s ease-in-out infinite;
-}
-
-/* phones move VERY slightly up/down (no rotation) */
-.hero-screen-half--left {
-  animation: hero-phone-left 20s ease-in-out infinite;
-}
-
-.hero-screen-half--right {
-  animation: hero-phone-right 20s ease-in-out infinite;
-}
-
 @keyframes hero-float {
   0% {
     transform: translateY(2px);
