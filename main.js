@@ -44,3 +44,29 @@ window.addEventListener("scroll", () => {
 scrollTopBtn.addEventListener("click", () => {
   window.scrollTo({ top: 0, behavior: "smooth" });
 });
+
+// ----- Show header only while scrolling -----
+(function () {
+  const headerWrap = document.querySelector(".shell-header-wrap");
+  if (!headerWrap) return;
+
+  let hideTimeout = null;
+
+  function showHeaderWhileScrolling() {
+    // only show once user has actually scrolled a bit
+    if (window.scrollY < 20) return;
+
+    headerWrap.classList.add("is-active");
+
+    if (hideTimeout) clearTimeout(hideTimeout);
+
+    // hide shortly after scrolling stops
+    hideTimeout = setTimeout(() => {
+      headerWrap.classList.remove("is-active");
+    }, 600); // tweak duration if you want
+  }
+
+  window.addEventListener("scroll", showHeaderWhileScrolling, {
+    passive: true,
+  });
+})();

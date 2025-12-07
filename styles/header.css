@@ -1,10 +1,24 @@
 /* Header / nav -------------------------------------------------- */
 
+/* Header / nav -------------------------------------------------- */
+
 .shell-header-wrap {
   position: sticky;
   top: 0;
   z-index: 40;
   padding-bottom: 8px;
+  /* hidden by default */
+  opacity: 0;
+  transform: translateY(-14px);
+  pointer-events: none;
+  transition: opacity 0.22s ease, transform 0.22s ease;
+}
+
+/* visible state while scrolling */
+.shell-header-wrap.is-active {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
 }
 
 /* --- MOBILE FIRST (default) ----------------------------------- */
@@ -15,11 +29,11 @@ header {
   justify-content: center;
   gap: 16px;
   margin-bottom: 18px;
-  padding: 8px 0; /* no pill/card padding on mobile */
-  border-radius: 0; /* no rounded bg */
-  background: transparent; /* <-- remove background */
-  border: none; /* <-- remove border */
-  box-shadow: none; /* <-- remove shadow */
+  padding: 8px 0;
+  border-radius: 0;
+  background: transparent;
+  border: none;
+  box-shadow: none;
 }
 
 /* hide brand + nav by default (mobile) */
@@ -35,41 +49,39 @@ header {
   justify-content: center;
 }
 
-/* App Store style CTA (mobile & desktop) ------------------------ */
-
-/* --- APP STORE BADGE (accurate spacing & typography) ----------- */
+/* --- APP STORE BADGE ------------------------------------------ */
 
 .nav-store-btn {
   display: inline-flex;
   align-items: center;
-  gap: 14px; /* more space like real badge */
-  padding: 12px 22px;
+  gap: 12px;
+  padding: 11px 24px;
   border-radius: 999px;
-  background: #000;
-  color: #fff;
+  background: #020618;
+  color: #ffffff;
   text-decoration: none;
-  border: 1px solid #000;
-  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.35);
+  border: 1px solid #020618;
+  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.55);
   transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
 
 .nav-store-btn:hover {
   transform: translateY(-1px);
-  box-shadow: 0 18px 38px rgba(0, 0, 0, 0.45);
+  box-shadow: 0 22px 50px rgba(15, 23, 42, 0.7);
 }
 
-/* Apple icon */
+/* Apple icon: slightly larger, no box */
 .nav-store-icon {
-  font-size: 28px; /* bigger apple */
-  width: 28px;
-  height: 28px;
+  font-size: 30px; /* bigger  */
+  width: 30px;
+  height: 30px;
   display: flex;
   align-items: center;
   justify-content: center;
   line-height: 0;
 }
 
-/* text stack */
+/* text stack – visually centered block */
 .nav-store-text {
   display: flex;
   flex-direction: column;
@@ -81,25 +93,17 @@ header {
 .nav-store-eyebrow {
   font-size: 11px;
   font-weight: 500;
-  letter-spacing: 0.13em; /* wider like Apple */
+  letter-spacing: 0.14em; /* wide like Apple */
   text-transform: uppercase;
   opacity: 0.9;
-  margin-bottom: 2px; /* space between lines */
+  margin-bottom: 2px;
 }
 
-/* "App Store" line */
+/* "App Store" line – similar visual width */
 .nav-store-label {
-  font-size: 18px; /* bigger & bold like real badge */
+  font-size: 17px;
   font-weight: 600;
-  margin-top: 0;
-}
-
-/* desktop can keep these slight tweaks if you like */
-@media (min-width: 769px) {
-  .nav-store-btn {
-    padding: 8px 20px;
-    max-width: none;
-  }
+  letter-spacing: 0.02em; /* slightly stretched */
 }
 
 /* --- DESKTOP / LARGE SCREENS ---------------------------------- */
@@ -219,15 +223,15 @@ header {
   }
 
   .nav-store-btn {
-    padding: 6px 14px;
-    max-width: none;
+    padding: 8px 22px;
+    box-shadow: 0 16px 38px rgba(15, 23, 42, 0.55);
   }
 
   .nav-store-eyebrow {
-    font-size: 9px;
+    font-size: 10px;
   }
 
   .nav-store-label {
-    font-size: 13px;
+    font-size: 16px;
   }
 }
