@@ -19,7 +19,7 @@
 
         --border-subtle: #e5e7eb;
 
-        --text-main: #0f172a;
+        --text-main: #020617;
         --text-muted: #6b7280;
         --text-soft: #9ca3af;
 
@@ -41,13 +41,28 @@
         box-sizing: border-box;
       }
 
+      html {
+        scroll-behavior: smooth;
+      }
+
       body {
         margin: 0;
         min-height: 100vh;
         font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
           "Segoe UI", sans-serif;
-        background: radial-gradient(circle at top left, #dbe8ff 0, #eef3ff 55%);
         color: var(--text-main);
+        background: radial-gradient(circle at top left, #dbe8ff 0, #eef3ff 55%);
+        background-size: 140% 140%;
+        animation: bg-shift 18s ease-in-out infinite alternate;
+      }
+
+      @keyframes bg-shift {
+        0% {
+          background-position: 0% 0%;
+        }
+        100% {
+          background-position: 100% 100%;
+        }
       }
 
       .page {
@@ -63,7 +78,14 @@
         padding: 22px 20px 56px;
       }
 
-      /* Header / nav */
+      /* Sticky header / nav */
+
+      .shell-header-wrap {
+        position: sticky;
+        top: 0;
+        z-index: 40;
+        padding-bottom: 10px;
+      }
 
       header {
         display: flex;
@@ -71,6 +93,13 @@
         justify-content: space-between;
         gap: 16px;
         margin-bottom: 28px;
+        padding: 10px 14px;
+        border-radius: 999px;
+        background: rgba(248, 250, 252, 0.82);
+        border: 1px solid rgba(148, 163, 184, 0.3);
+        box-shadow: 0 18px 40px rgba(15, 23, 42, 0.12);
+        -webkit-backdrop-filter: blur(20px);
+        backdrop-filter: blur(20px);
       }
 
       .brand {
@@ -129,12 +158,32 @@
       nav a {
         color: var(--text-muted);
         text-decoration: none;
-        transition: color 0.18s ease, opacity 0.18s ease;
+        padding: 4px 0;
+        position: relative;
+        transition: color 0.18s ease, opacity 0.18s ease, transform 0.18s ease;
+      }
+
+      nav a::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: -4px;
+        height: 2px;
+        border-radius: 999px;
+        background: linear-gradient(to right, #2563eb, #60a5fa);
+        transform: scaleX(0);
+        transform-origin: center;
+        transition: transform 0.2s ease-out;
       }
 
       nav a:hover {
         color: var(--primary-strong);
-        opacity: 0.9;
+        transform: translateY(-1px);
+      }
+
+      nav a:hover::after {
+        transform: scaleX(1);
       }
 
       .pill {
@@ -158,33 +207,79 @@
         box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.16);
       }
 
+      .nav-cta {
+        padding: 7px 14px;
+        border-radius: 999px;
+        border: 1px solid rgba(37, 99, 235, 0.3);
+        background: linear-gradient(135deg, #2563eb, #60a5fa);
+        color: #eff6ff;
+        font-size: 12px;
+        font-weight: 500;
+        box-shadow: 0 12px 32px rgba(37, 99, 235, 0.35);
+      }
+
+      .nav-cta:hover {
+        color: #eff6ff;
+        transform: translateY(-1px);
+      }
+
       @media (max-width: 880px) {
         header {
           flex-direction: column;
           align-items: flex-start;
+          border-radius: 20px;
         }
 
         nav {
           flex-wrap: wrap;
+          width: 100%;
+          justify-content: space-between;
+        }
+
+        .pill {
+          display: none;
         }
       }
 
-      /* HERO – text stacked above hero visual */
-
-      /* HERO – text stacked above hero visual */
+      /* HERO */
 
       .hero {
-        margin-top: 8px;
-        margin-bottom: 72px;
+        margin-top: 24px;
+        margin-bottom: 80px;
         display: flex;
         flex-direction: column;
         align-items: center;
-        gap: 32px;
+        gap: 36px;
         text-align: center;
       }
 
       .hero-text {
         max-width: 640px;
+      }
+
+      .hero-pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 5px 12px;
+        border-radius: 999px;
+        background: rgba(37, 99, 235, 0.08);
+        border: 1px solid rgba(129, 140, 248, 0.35);
+        color: #1d4ed8;
+        font-size: 11px;
+        margin-bottom: 12px;
+        box-shadow: 0 12px 30px rgba(37, 99, 235, 0.16);
+      }
+
+      .hero-pill-badge {
+        width: 18px;
+        height: 18px;
+        border-radius: 999px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        background: #eff6ff;
+        font-size: 12px;
       }
 
       .hero-text h1 {
@@ -208,6 +303,20 @@
         margin: 0 auto 18px;
       }
 
+      .hero-tagline-underline {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+      }
+
+      .hero-tagline-underline span {
+        width: 10px;
+        height: 10px;
+        border-radius: 999px;
+        background: var(--accent);
+        box-shadow: 0 0 0 4px rgba(34, 197, 94, 0.15);
+      }
+
       .hero-points {
         display: flex;
         flex-wrap: wrap;
@@ -220,11 +329,11 @@
         display: inline-flex;
         align-items: center;
         gap: 6px;
-        padding: 6px 10px;
+        padding: 6px 11px;
         border-radius: 999px;
         font-size: 11px;
         border: 1px solid var(--border-subtle);
-        background: #eef2ff;
+        background: rgba(238, 242, 255, 0.95);
         color: var(--text-muted);
       }
 
@@ -276,17 +385,18 @@
       }
 
       .btn-primary {
-        background: linear-gradient(
-          135deg,
-          var(--primary),
-          var(--primary-soft)
+        background: radial-gradient(
+          circle at 0% 0%,
+          #60a5fa 0,
+          #2563eb 40%,
+          #1d4ed8 100%
         );
         color: #eff6ff;
         box-shadow: var(--shadow-hero);
       }
 
       .btn-primary:hover {
-        transform: translateY(-1px);
+        transform: translateY(-1px) translateZ(0);
         box-shadow: 0 30px 100px rgba(37, 99, 235, 0.55);
       }
 
@@ -301,17 +411,30 @@
         border-color: #60a5fa;
       }
 
-      .hero-caption {
+      .hero-meta {
+        margin-top: 10px;
         font-size: 12px;
         color: var(--text-soft);
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        justify-content: center;
       }
 
-      .hero-caption strong {
-        color: var(--accent);
-        font-weight: 500;
+      .hero-meta span {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
       }
 
-      /* HERO VISUAL – 2 screenshots inside one contained card */
+      .hero-meta-badge {
+        width: 6px;
+        height: 6px;
+        border-radius: 999px;
+        background: var(--accent);
+      }
+
+      /* HERO VISUAL */
 
       .hero-visual {
         width: 100%;
@@ -323,10 +446,30 @@
         position: relative;
         margin: 0 auto;
         border-radius: 36px;
-        background: #ffffff;
+        background: rgba(255, 255, 255, 0.96);
+        border: 1px solid rgba(148, 163, 184, 0.35);
         box-shadow: var(--shadow-hero);
         padding: 32px 40px;
-        overflow: hidden; /* keeps everything inside the card */
+        overflow: hidden;
+        isolation: isolate;
+      }
+
+      .hero-frame::before {
+        content: "";
+        position: absolute;
+        inset: -40%;
+        background: radial-gradient(
+            circle at 20% 0%,
+            rgba(96, 165, 250, 0.25),
+            transparent 50%
+          ),
+          radial-gradient(
+            circle at 80% 100%,
+            rgba(129, 140, 248, 0.28),
+            transparent 55%
+          );
+        opacity: 0.85;
+        z-index: -1;
       }
 
       .hero-phones {
@@ -343,6 +486,9 @@
         overflow: hidden;
         box-shadow: 0 22px 60px rgba(15, 23, 42, 0.18);
         transform-origin: center;
+        transition: transform 0.25s ease, box-shadow 0.25s ease,
+          filter 0.25s ease;
+        will-change: transform;
       }
 
       .hero-phone img {
@@ -353,14 +499,51 @@
 
       .hero-phone--left {
         transform: translateY(8px) rotate(-6deg);
+        animation: float-phone 10s ease-in-out infinite;
       }
 
       .hero-phone--right {
         transform: translateY(-4px) rotate(6deg);
-        margin-left: -40px; /* slight overlap */
+        margin-left: -40px;
+        animation: float-phone 11s ease-in-out infinite;
+        animation-delay: 0.4s;
       }
 
-      /* Tweak for tablet / mobile */
+      .hero-phone:hover {
+        transform: translateY(-4px) scale(1.01);
+        box-shadow: 0 30px 90px rgba(15, 23, 42, 0.32);
+        filter: saturate(1.05);
+      }
+
+      @keyframes float-phone {
+        0% {
+          transform: translateY(4px) rotate(-4deg);
+        }
+        50% {
+          transform: translateY(-6px) rotate(-5deg);
+        }
+        100% {
+          transform: translateY(4px) rotate(-4deg);
+        }
+      }
+
+      .hero-phone--right {
+        animation-name: float-phone-right;
+      }
+
+      @keyframes float-phone-right {
+        0% {
+          transform: translateY(-4px) rotate(6deg);
+        }
+        50% {
+          transform: translateY(6px) rotate(5deg);
+        }
+        100% {
+          transform: translateY(-4px) rotate(6deg);
+        }
+      }
+
+      /* Responsive tweaks for hero */
 
       @media (max-width: 900px) {
         .hero-frame {
@@ -391,16 +574,29 @@
         }
 
         .hero-phone--left {
-          display: none; /* just show one phone on small screens */
+          display: none;
         }
 
         .hero-phone--right {
           margin-left: 0;
           transform: rotate(0deg);
+          animation-name: float-phone-mobile;
         }
       }
 
-      /* Generic scroll-reveal */
+      @keyframes float-phone-mobile {
+        0% {
+          transform: translateY(2px);
+        }
+        50% {
+          transform: translateY(-6px);
+        }
+        100% {
+          transform: translateY(2px);
+        }
+      }
+
+      /* Scroll-reveal */
 
       .reveal {
         opacity: 0;
@@ -426,8 +622,13 @@
 
       /* Sections */
 
+      main {
+        position: relative;
+        z-index: 1;
+      }
+
       .section {
-        margin-bottom: 64px;
+        margin-bottom: 72px;
       }
 
       .section-header {
@@ -454,26 +655,54 @@
       .features-row {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-        gap: 16px;
+        gap: 18px;
       }
 
       .feature-card {
         border-radius: var(--radius-md);
         padding: 18px 16px 18px;
-        background: rgba(255, 255, 255, 0.95);
+        background: rgba(255, 255, 255, 0.96);
         border: 1px solid rgba(148, 163, 184, 0.22);
         box-shadow: var(--shadow-sm);
+        position: relative;
+        overflow: hidden;
+        transition: transform 0.22s ease, box-shadow 0.22s ease,
+          border-color 0.22s ease;
+      }
+
+      .feature-card::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(
+          circle at 0% 0%,
+          rgba(129, 140, 248, 0.24),
+          transparent 60%
+        );
+        opacity: 0;
+        transition: opacity 0.25s ease;
+        pointer-events: none;
+      }
+
+      .feature-card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 28px 70px rgba(15, 23, 42, 0.2);
+        border-color: rgba(129, 140, 248, 0.7);
+      }
+
+      .feature-card:hover::before {
+        opacity: 1;
       }
 
       .feature-icon {
-        width: 26px;
-        height: 26px;
+        width: 28px;
+        height: 28px;
         border-radius: 999px;
         display: flex;
         align-items: center;
         justify-content: center;
         font-size: 14px;
-        background: #dbeafe;
+        background: linear-gradient(135deg, #dbeafe, #bfdbfe);
         color: var(--primary-strong);
         margin-bottom: 10px;
       }
@@ -498,7 +727,26 @@
         box-shadow: var(--shadow-sm);
         border: 1px solid rgba(148, 163, 184, 0.18);
         padding: 18px 18px 18px;
-        margin-bottom: 20px;
+        margin-bottom: 22px;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .screen-section::after {
+        content: "";
+        position: absolute;
+        right: -80px;
+        bottom: -80px;
+        width: 180px;
+        height: 180px;
+        border-radius: 999px;
+        background: radial-gradient(
+          circle,
+          rgba(129, 140, 248, 0.2),
+          transparent 70%
+        );
+        opacity: 0.7;
+        pointer-events: none;
       }
 
       .screen-layout {
@@ -523,7 +771,8 @@
         border-radius: 32px;
         box-shadow: 0 22px 60px rgba(15, 23, 42, 0.16);
         display: block;
-        transition: transform 0.25s ease, box-shadow 0.25s ease;
+        transition: transform 0.25s ease, box-shadow 0.25s ease,
+          filter 0.25s ease;
       }
 
       .screen-shot-duo {
@@ -538,13 +787,15 @@
         border-radius: 30px;
         box-shadow: 0 20px 46px rgba(15, 23, 42, 0.18);
         display: block;
-        transition: transform 0.25s ease, box-shadow 0.25s ease;
+        transition: transform 0.25s ease, box-shadow 0.25s ease,
+          filter 0.25s ease;
       }
 
       .screen-shot img:hover,
       .screen-shot-duo img:hover {
         transform: translateY(-8px) scale(1.008);
         box-shadow: 0 26px 80px rgba(15, 23, 42, 0.25);
+        filter: saturate(1.05);
       }
 
       .screen-copy-label {
@@ -579,6 +830,11 @@
       }
 
       @media (max-width: 880px) {
+        .section-header {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+
         .screen-layout,
         .screen-layout.reverse {
           grid-template-columns: minmax(0, 1fr);
@@ -694,6 +950,23 @@
         color: var(--text-soft);
       }
 
+      /* Privacy blurb */
+
+      .privacy-copy {
+        font-size: 13px;
+        color: var(--text-muted);
+        max-width: 640px;
+      }
+
+      .privacy-copy a {
+        color: var(--primary-strong);
+        text-decoration: none;
+      }
+
+      .privacy-copy a:hover {
+        text-decoration: underline;
+      }
+
       /* Footer */
 
       footer {
@@ -722,39 +995,79 @@
       .footer-links a:hover {
         color: var(--primary-strong);
       }
+
+      /* Small scroll-to-top pill (optional but nice) */
+
+      .scroll-top {
+        position: fixed;
+        right: 20px;
+        bottom: 20px;
+        z-index: 50;
+        padding: 7px 11px;
+        border-radius: 999px;
+        border: 1px solid rgba(148, 163, 184, 0.6);
+        background: rgba(248, 250, 252, 0.9);
+        font-size: 11px;
+        color: var(--text-muted);
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        box-shadow: 0 12px 30px rgba(15, 23, 42, 0.18);
+        opacity: 0;
+        transform: translateY(10px);
+        pointer-events: none;
+        transition: opacity 0.2s ease, transform 0.2s ease;
+        -webkit-backdrop-filter: blur(16px);
+        backdrop-filter: blur(16px);
+        cursor: pointer;
+      }
+
+      .scroll-top.visible {
+        opacity: 1;
+        transform: translateY(0);
+        pointer-events: auto;
+      }
     </style>
   </head>
 
   <body>
     <div class="page">
       <div class="shell">
-        <header>
-          <div class="brand">
-            <div class="brand-mark"><span>ē</span></div>
-            <div class="brand-text">
-              <div class="brand-name">EconoMe</div>
-              <div class="brand-tagline">Simple budgeting, made for you</div>
+        <div class="shell-header-wrap">
+          <header>
+            <div class="brand">
+              <div class="brand-mark"><span>ē</span></div>
+              <div class="brand-text">
+                <div class="brand-name">EconoMe</div>
+                <div class="brand-tagline">Simple budgeting, made for you</div>
+              </div>
             </div>
-          </div>
 
-          <nav>
-            <span class="pill">
-              <span class="pill-dot"></span>
-              Built for Canadians
-            </span>
-            <a href="#features">Features</a>
-            <a href="#screens">Screens</a>
-            <a href="#why">Why EconoMe</a>
-            <a href="#privacy">Privacy</a>
-          </nav>
-        </header>
+            <nav>
+              <span class="pill">
+                <span class="pill-dot"></span>
+                Built for Canadians
+              </span>
+              <a href="#features">Features</a>
+              <a href="#screens">Screens</a>
+              <a href="#why">Why EconoMe</a>
+              <a href="#privacy">Privacy</a>
+              <a
+                href="mailto:support@economeinc.com?subject=EconoMe%20beta%20access"
+                class="nav-cta"
+                >Request access</a
+              >
+            </nav>
+          </header>
+        </div>
 
         <main>
           <!-- HERO -->
           <section class="hero">
             <div class="hero-text">
-              <div class="pill" style="margin-bottom: 10px">
-                🎯 Mint-style budgeting, rebuilt for Canadians
+              <div class="hero-pill">
+                <span class="hero-pill-badge">🎯</span>
+                Mint-style budgeting, rebuilt for Canadians
               </div>
 
               <h1>
@@ -763,8 +1076,13 @@
               </h1>
 
               <p class="hero-tagline">
-                Connect your bank, see where your money goes, and stay on track
-                in just a few minutes a week.
+                <span class="hero-tagline-underline">
+                  <span></span>
+                  <span
+                    >Connect your bank, see where your money goes, and stay on
+                    track in just a few minutes a week.</span
+                  >
+                </span>
               </p>
 
               <div class="hero-points">
@@ -794,6 +1112,14 @@
                 <strong>No ads. No clutter.</strong> Just a budgeting app that’s
                 easy to stick with.
               </p>
+
+              <div class="hero-meta">
+                <span
+                  ><span class="hero-meta-badge"></span> Privacy-first, no data
+                  selling</span
+                >
+                <span> Made in Canada, for Canadians 🇨🇦</span>
+              </div>
             </div>
 
             <!-- Composed hero visual -->
@@ -815,6 +1141,7 @@
                 </div>
               </div>
             </div>
+          </section>
 
           <!-- FEATURES -->
           <section class="section" id="features">
@@ -1030,22 +1357,12 @@
               </div>
             </div>
 
-            <p
-              style="
-                font-size: 13px;
-                color: var(--text-muted);
-                max-width: 640px;
-              "
-            >
+            <p class="privacy-copy">
               EconoMe uses Plaid for secure bank connections and Firebase for
               authentication and storage. Learn more in our
-              <a href="privacy-policy.html" style="color: var(--primary-strong)"
-                >Privacy Policy</a
-              >,
-              <a href="terms.html" style="color: var(--primary-strong)"
-                >Terms of Service</a
-              >, and
-              <a href="data-retention.html" style="color: var(--primary-strong)"
+              <a href="privacy-policy.html">Privacy Policy</a>,
+              <a href="terms.html">Terms of Service</a>, and
+              <a href="data-retention.html"
                 >Data Deletion &amp; Retention Policy</a
               >.
             </p>
@@ -1063,6 +1380,11 @@
           </div>
         </footer>
       </div>
+
+      <!-- Scroll-to-top pill -->
+      <button class="scroll-top" id="scrollTopBtn" aria-label="Back to top">
+        ↑ Top
+      </button>
     </div>
 
     <script>
@@ -1071,7 +1393,7 @@
         .getFullYear()
         .toString();
 
-      // simple scroll-reveal for .reveal elements
+      // simple scroll-reveal for .reveal elements with stagger
       const revealEls = document.querySelectorAll(".reveal");
 
       if ("IntersectionObserver" in window && revealEls.length) {
@@ -1089,10 +1411,29 @@
           }
         );
 
-        revealEls.forEach((el) => observer.observe(el));
+        revealEls.forEach((el, index) => {
+          el.style.transitionDelay = `${index * 60}ms`;
+          observer.observe(el);
+        });
       } else {
         revealEls.forEach((el) => el.classList.add("is-visible"));
       }
+
+      // Scroll-to-top visibility & behavior
+      const scrollTopBtn = document.getElementById("scrollTopBtn");
+
+      window.addEventListener("scroll", () => {
+        const y = window.scrollY || window.pageYOffset;
+        if (y > 260) {
+          scrollTopBtn.classList.add("visible");
+        } else {
+          scrollTopBtn.classList.remove("visible");
+        }
+      });
+
+      scrollTopBtn.addEventListener("click", () => {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      });
     </script>
   </body>
 </html>
