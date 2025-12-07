@@ -37,62 +37,61 @@ header {
 
 /* App Store style CTA (mobile & desktop) ------------------------ */
 
-/* App Store style CTA (mobile & desktop) ------------------------ */
+/* --- APP STORE BADGE (accurate spacing & typography) ----------- */
 
 .nav-store-btn {
   display: inline-flex;
   align-items: center;
-  gap: 10px;
-  padding: 9px 20px;
+  gap: 14px; /* more space like real badge */
+  padding: 12px 22px;
   border-radius: 999px;
-  background: #000000;
-  color: #f9fafb;
+  background: #000;
+  color: #fff;
   text-decoration: none;
-  box-shadow: 0 14px 30px rgba(15, 23, 42, 0.45);
-  border: 1px solid #000000;
-  white-space: nowrap;
-  transition: transform 0.16s ease, box-shadow 0.16s ease, background 0.16s ease;
-  justify-content: center;
-  max-width: 420px;
-  margin: 0 auto;
+  border: 1px solid #000;
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.35);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
 
 .nav-store-btn:hover {
   transform: translateY(-1px);
-  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.6);
+  box-shadow: 0 18px 38px rgba(0, 0, 0, 0.45);
 }
 
-/* bigger Apple logo, no inner square */
+/* Apple icon */
 .nav-store-icon {
-  width: 26px;
-  height: 26px;
+  font-size: 28px; /* bigger apple */
+  width: 28px;
+  height: 28px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 20px; /* makes the  bigger */
-  line-height: 1;
+  line-height: 0;
 }
 
-/* text block aligned like real badge */
+/* text stack */
 .nav-store-text {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: flex-start; /* keep left-aligned, visually centered as a unit */
-  line-height: 1.15;
+  line-height: 1;
 }
 
+/* "Download on the" line */
 .nav-store-eyebrow {
-  font-size: 9px;
-  letter-spacing: 0.12em;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.13em; /* wider like Apple */
   text-transform: uppercase;
   opacity: 0.9;
+  margin-bottom: 2px; /* space between lines */
 }
 
+/* "App Store" line */
 .nav-store-label {
-  font-size: 15px;
+  font-size: 18px; /* bigger & bold like real badge */
   font-weight: 600;
-  margin-top: 1px;
+  margin-top: 0;
 }
 
 /* desktop can keep these slight tweaks if you like */
