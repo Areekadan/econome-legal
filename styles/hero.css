@@ -76,7 +76,7 @@
 @media (min-width: 880px) {
   .hero {
     padding: 56px 0 64px;
-    min-height: calc(100vh - 90px);
+    min-height: calc(100vh - 200px);
     display: flex;
     align-items: center;
   }
