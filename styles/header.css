@@ -37,17 +37,19 @@ header {
 
 /* App Store style CTA (mobile & desktop) ------------------------ */
 
+/* App Store style CTA (mobile & desktop) ------------------------ */
+
 .nav-store-btn {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  padding: 10px 18px;
+  gap: 10px;
+  padding: 9px 20px;
   border-radius: 999px;
-  background: #020617;
+  background: #000000;
   color: #f9fafb;
   text-decoration: none;
   box-shadow: 0 14px 30px rgba(15, 23, 42, 0.45);
-  border: 1px solid #020617;
+  border: 1px solid #000000;
   white-space: nowrap;
   transition: transform 0.16s ease, box-shadow 0.16s ease, background 0.16s ease;
   justify-content: center;
@@ -60,34 +62,45 @@ header {
   box-shadow: 0 18px 40px rgba(15, 23, 42, 0.6);
 }
 
+/* bigger Apple logo, no inner square */
 .nav-store-icon {
-  width: 22px;
-  height: 22px;
-  border-radius: 6px;
-  background: #0b1120;
+  width: 26px;
+  height: 26px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 15px;
+  font-size: 20px; /* makes the  bigger */
   line-height: 1;
 }
 
+/* text block aligned like real badge */
 .nav-store-text {
   display: flex;
   flex-direction: column;
-  line-height: 1.1;
+  justify-content: center;
+  align-items: flex-start; /* keep left-aligned, visually centered as a unit */
+  line-height: 1.15;
 }
 
 .nav-store-eyebrow {
-  font-size: 8px;
-  letter-spacing: 0.08em;
+  font-size: 9px;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   opacity: 0.9;
 }
 
 .nav-store-label {
-  font-size: 12px;
+  font-size: 15px;
   font-weight: 600;
+  margin-top: 1px;
+}
+
+/* desktop can keep these slight tweaks if you like */
+@media (min-width: 769px) {
+  .nav-store-btn {
+    padding: 8px 20px;
+    max-width: none;
+  }
 }
 
 /* --- DESKTOP / LARGE SCREENS ---------------------------------- */
