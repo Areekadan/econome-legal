@@ -8,7 +8,14 @@
       name="description"
       content="EconoMe is a simple budgeting app for Canadians. Connect your bank, set clear budgets, and see your money at a glance."
     />
-    <link rel="stylesheet" href="styles.css" />
+
+    <!-- Split styles -->
+    <link rel="stylesheet" href="base.css" />
+    <link rel="stylesheet" href="header.css" />
+    <link rel="stylesheet" href="hero.css" />
+    <link rel="stylesheet" href="features.css" />
+    <link rel="stylesheet" href="screens.css" />
+    <link rel="stylesheet" href="why.css" />
   </head>
 
   <body>
@@ -195,7 +202,7 @@
                 <div class="screen-copy">
                   <div class="screen-copy-label"><span></span> Budgets</div>
                   <h3>Every category, in one view.</h3>
-                  <p>See what’s left before you spend, not after.</p>
+                  <p>See what's left before you spend, not after.</p>
                 </div>
               </div>
             </div>
@@ -294,7 +301,7 @@
                 <div class="testimonial-tag">
                   <span></span> Built to stick long-term
                 </div>
-                <div style="margin-top: 8px">
+                <div class="testimonial-metric-wrap">
                   <div class="testimonial-metric">
                     60+ <span>categories in one view</span>
                   </div>
@@ -335,7 +342,7 @@
 
             <p class="privacy-copy">
               EconoMe uses Plaid for secure bank connections and Firebase for
-              authentication and storage. We don’t sell your data or show ads.
+              authentication and storage. We don't sell your data or show ads.
               Learn more in our
               <a href="privacy-policy.html">Privacy Policy</a>,
               <a href="terms.html">Terms of Service</a>, and
