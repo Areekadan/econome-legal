@@ -189,40 +189,45 @@ header {
 }
 
 /* Mobile nav tweaks --------------------------------------------- */
-
 @media (max-width: 768px) {
   .shell {
     padding: 12px 12px 44px;
   }
 
-  /* keep sticky behavior – don't override position */
   .shell-header-wrap {
-    padding-bottom: 8px;
+    position: sticky; /* keep it sticky */
+    top: 0;
+    z-index: 40;
+    padding: 8px 0 10px;
   }
 
   header {
     margin-bottom: 16px;
-    padding: 8px 12px;
+    padding: 8px 10px;
     border-radius: 999px;
     box-shadow: 0 10px 24px rgba(15, 23, 42, 0.12);
-    justify-content: center;
+    background: rgba(248, 250, 252, 0.94);
+    display: flex;
+    justify-content: center; /* center contents */
   }
 
   .header-nav {
     width: 100%;
+    display: flex;
     justify-content: center;
     gap: 0;
   }
 
-  /* Hide everything except the App Store button on mobile */
+  /* hide everything except the store button */
   .brand,
   .pill,
   .nav-links {
-    display: none;
+    display: none !important;
   }
 
   .nav-store-btn {
-    flex: 1;
+    margin: 0 auto;
+    flex: 0 1 auto;
     justify-content: center;
     padding: 10px 18px;
     max-width: 420px;
@@ -232,7 +237,7 @@ header {
 @media (max-width: 480px) {
   header {
     margin-bottom: 14px;
-    padding: 8px 10px;
+    padding: 8px 8px;
   }
 
   .nav-store-label {
