@@ -428,9 +428,7 @@ nav a:hover::after {
   border-color: #60a5fa;
 }
 
-/* HERO VISUAL */
-
-/* HERO VISUAL – phones line up as one flat image */
+/* HERO VISUAL – phones merge from sides into one flat image */
 
 .hero-visual {
   width: 100%;
@@ -479,27 +477,62 @@ nav a:hover::after {
   overflow: hidden;
   box-shadow: none;
   transform-origin: center;
-  transition: transform 0.35s cubic-bezier(0.22, 0.61, 0.36, 1),
-    filter 0.3s ease;
   will-change: transform;
-}
-
-.hero-phone img {
-  width: 100%;
-  height: auto;
-  display: block;
+  opacity: 0; /* fade in as they slide */
 }
 
 /* outer corners rounded so the two halves feel like one card */
 .hero-phone--left {
   border-radius: 24px 0 0 24px;
+  animation: hero-merge-left 0.9s cubic-bezier(0.22, 0.61, 0.36, 1) 0.1s
+    forwards;
 }
 
 .hero-phone--right {
   border-radius: 0 24px 24px 0;
+  animation: hero-merge-right 0.9s cubic-bezier(0.22, 0.61, 0.36, 1) 0.18s
+    forwards;
 }
 
-/* subtle breathing animation – no rotation */
+/* slide in + fade */
+@keyframes hero-merge-left {
+  0% {
+    opacity: 0;
+    transform: translateX(-80%) scale(0.96);
+  }
+  60% {
+    opacity: 1;
+    transform: translateX(6%) scale(1);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}
+
+@keyframes hero-merge-right {
+  0% {
+    opacity: 0;
+    transform: translateX(80%) scale(0.96);
+  }
+  60% {
+    opacity: 1;
+    transform: translateX(-6%) scale(1);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}
+
+/* subtle float AFTER they’ve merged – done on the img so it can combine with the slide transforms */
+.hero-phone img {
+  width: 100%;
+  height: auto;
+  display: block;
+  animation: float-phone 16s ease-in-out infinite 1s;
+}
+
 @keyframes float-phone {
   0% {
     transform: translateY(2px);
@@ -510,16 +543,6 @@ nav a:hover::after {
   100% {
     transform: translateY(2px);
   }
-}
-
-.hero-phone--left,
-.hero-phone--right {
-  animation: float-phone 14s ease-in-out infinite;
-}
-
-.hero-phone:hover {
-  transform: translateY(-3px);
-  filter: saturate(1.04);
 }
 
 /* HERO MOBILE LAYOUT (phones below text, still puzzle-style) */
@@ -560,11 +583,6 @@ nav a:hover::after {
 
   .hero-phones {
     grid-template-columns: 1fr 1fr;
-  }
-
-  .hero-phone--left,
-  .hero-phone--right {
-    animation-duration: 16s;
   }
 }
 
