@@ -1,142 +1,100 @@
 /* HERO ---------------------------------------------------------- */
-/* Fullscreen-ish, single card, images only */
+/* Mobile-first: text + device stacked, very minimal */
 
 .hero {
-  position: relative;
-  padding: 24px 0 40px;
+  padding: 32px 0 48px;
   margin-bottom: 0;
-  min-height: calc(100vh - 80px); /* header ≈80px, tweak if needed */
-  display: flex;
-  align-items: center;
 }
 
 .hero-inner {
-  width: 100%;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  gap: 24px;
 }
 
-/* HERO VISUAL --------------------------------------------------- */
+/* TEXT ---------------------------------------------------------- */
+
+.hero-text {
+  text-align: left;
+}
+
+.hero-eyebrow {
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-soft);
+  margin: 0 0 10px;
+}
+
+.hero-title {
+  margin: 0;
+  font-size: clamp(32px, 8vw, 44px);
+  line-height: 1.02;
+  letter-spacing: -0.045em;
+  color: var(--text-main);
+}
+
+.hero-title-accent {
+  color: var(--accent); /* same green as your brand */
+}
+
+/* DEVICE -------------------------------------------------------- */
 
 .hero-visual {
   width: 100%;
-  max-width: min(460px, 100% - 24px); /* bigger on mobile */
-}
-
-/* outer card – one shadow, one radius */
-.hero-frame {
-  position: relative;
-  width: 100%;
-  border-radius: 40px;
-  overflow: hidden; /* images clip to same radius */
-  background: #ffffff;
-  box-shadow: 0 32px 100px rgba(15, 23, 42, 0.28);
-  isolation: isolate;
-}
-
-/* soft glow behind card */
-.hero-frame::before {
-  content: "";
-  position: absolute;
-  inset: -24%;
-  background: radial-gradient(
-      circle at 12% 0%,
-      rgba(129, 140, 248, 0.18),
-      transparent 60%
-    ),
-    radial-gradient(
-      circle at 88% 100%,
-      rgba(96, 165, 250, 0.22),
-      transparent 65%
-    );
-  opacity: 0.9;
-  z-index: -1;
-}
-
-/* the two halves inside the card */
-.hero-screens-split {
   display: flex;
-  align-items: stretch;
   justify-content: center;
-  gap: 4px; /* tiny seam between halves */
 }
 
-/* slim vertical split */
-.hero-screen-gap {
-  width: 2px;
-  flex: 0 0 2px;
-  background: #f1f5f9;
+.hero-device {
+  width: 100%;
+  max-width: 420px;
+  filter: drop-shadow(0 32px 80px rgba(15, 23, 42, 0.26));
 }
 
-/* halves have no extra shadows or radius – card handles that */
-.hero-screen-half {
-  flex: 1;
-  border-radius: 0;
-  overflow: hidden;
-}
-
-/* make them behave like one composite image */
-.hero-screen-half--left img {
+.hero-device img {
   display: block;
   width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 40px 0 0 40px;
-}
-
-.hero-screen-half--right img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 0 40px 40px 0;
-}
-
-/* subtle float for the whole card (premium but not gimmicky) */
-.hero-frame {
-  animation: hero-float 18s ease-in-out infinite;
-}
-
-@keyframes hero-float {
-  0% {
-    transform: translateY(4px);
-  }
-  50% {
-    transform: translateY(-6px);
-  }
-  100% {
-    transform: translateY(4px);
-  }
+  height: auto;
+  border-radius: 40px; /* softens any hard crop edges */
 }
 
 /* DESKTOP / LARGER SCREENS ------------------------------------- */
 
 @media (min-width: 880px) {
   .hero {
-    padding: 56px 0 56px;
-    min-height: calc(100vh - 90px);
+    padding: 56px 0 64px;
+    min-height: calc(100vh - 90px); /* almost full height under header */
+    display: flex;
+    align-items: center;
+  }
+
+  .hero-inner {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 64px;
+  }
+
+  .hero-text {
+    max-width: 440px;
+  }
+
+  .hero-title {
+    font-size: clamp(40px, 4.4vw, 52px);
   }
 
   .hero-visual {
-    max-width: 640px; /* bigger hero on desktop */
+    justify-content: flex-end;
   }
 
-  .hero-frame {
-    border-radius: 48px;
-    box-shadow: 0 40px 120px rgba(15, 23, 42, 0.3);
-  }
-
-  .hero-screen-half--left img {
-    border-radius: 48px 0 0 48px;
-  }
-
-  .hero-screen-half--right img {
-    border-radius: 0 48px 48px 0;
+  .hero-device {
+    max-width: 520px;
   }
 }
 
 @media (min-width: 1280px) {
-  .hero-visual {
-    max-width: 720px;
+  .hero-device {
+    max-width: 580px;
   }
 }
