@@ -192,50 +192,54 @@ header {
 
 @media (max-width: 768px) {
   .shell {
-    padding: 14px 14px 48px;
+    padding: 12px 12px 44px;
   }
 
+  /* keep sticky behavior – don't override position */
   .shell-header-wrap {
-    position: static;
+    padding-bottom: 8px;
   }
 
   header {
-    margin-bottom: 20px;
-    padding: 10px 14px;
-    border-radius: 22px;
+    margin-bottom: 16px;
+    padding: 8px 12px;
+    border-radius: 999px;
     box-shadow: 0 10px 24px rgba(15, 23, 42, 0.12);
+    justify-content: center;
   }
 
   .header-nav {
-    gap: 10px;
+    width: 100%;
+    justify-content: center;
+    gap: 0;
   }
 
-  /* Hide secondary nav on mobile – focus on logo + CTA */
+  /* Hide everything except the App Store button on mobile */
+  .brand,
   .pill,
   .nav-links {
     display: none;
   }
 
   .nav-store-btn {
-    padding: 8px 16px;
+    flex: 1;
+    justify-content: center;
+    padding: 10px 18px;
+    max-width: 420px;
   }
 }
 
 @media (max-width: 480px) {
   header {
-    margin-bottom: 18px;
-    padding: 9px 12px;
-  }
-
-  .brand-name {
-    font-size: 16px;
-  }
-
-  .brand-tagline {
-    font-size: 11px;
+    margin-bottom: 14px;
+    padding: 8px 10px;
   }
 
   .nav-store-label {
     font-size: 12px;
+  }
+
+  .nav-store-eyebrow {
+    font-size: 8px;
   }
 }
