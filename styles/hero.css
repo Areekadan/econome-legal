@@ -1,26 +1,35 @@
 /* HERO ---------------------------------------------------------- */
-/* Mobile-first: fullscreen-ish, phones are the star */
+/* Mobile-first: fullscreen hero, phones are the star */
 
 .hero {
-  padding: 24px 0 32px;
-  margin-bottom: 24px;
-  min-height: 82vh; /* take up the whole first view */
+  position: relative;
+  padding: 24px 0 40px;
+  margin-bottom: 0;
+  min-height: calc(100vh - 80px); /* header ~80px; tweak if needed */
   display: flex;
   align-items: center;
 }
 
 .hero-inner {
+  position: relative;
   width: 100%;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 16px;
-  text-align: center;
+  justify-content: center;
 }
 
-/* tiny eyebrow pill above phones -------------------------------- */
+/* EYEBROW + SUPPORT: overlaid on the same hero canvas ------------ */
 
+.hero-eyebrow-pill,
+.hero-support {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  pointer-events: none; /* hero is just visual, no clicks here */
+}
+
+/* tiny eyebrow above the phones */
 .hero-eyebrow-pill {
+  top: clamp(12px, 7vh, 40px);
   display: inline-flex;
   align-items: center;
   gap: 8px;
@@ -30,6 +39,8 @@
   border: 1px solid rgba(129, 140, 248, 0.35);
   color: #1d4ed8;
   font-size: 11px;
+  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(16px);
 }
 
 .hero-pill-badge {
@@ -43,29 +54,29 @@
   font-size: 12px;
 }
 
-/* small trust line under phones --------------------------------- */
-
+/* trust line under the phones */
 .hero-support {
+  bottom: clamp(16px, 6vh, 32px);
   font-size: 12px;
   color: var(--text-soft);
-  margin-top: 4px;
+  text-align: center;
 }
 
 /* HERO VISUAL – split phones ------------------------------------ */
 
 .hero-visual {
   width: 100%;
-  max-width: 360px; /* bigger on mobile */
+  max-width: min(420px, 100% - 40px); /* big on mobile, still padded */
 }
 
-/* light, minimal container – no visible border box */
 .hero-frame {
   position: relative;
-  border-radius: 32px;
-  padding: 0; /* let the phones fill it */
+  width: 100%;
+  border-radius: 36px;
+  padding: 0;
   background: transparent;
   border: none;
-  box-shadow: 0 28px 80px rgba(15, 23, 42, 0.24);
+  box-shadow: 0 30px 90px rgba(15, 23, 42, 0.28);
   overflow: visible;
   isolation: isolate;
 }
@@ -74,14 +85,14 @@
 .hero-frame::before {
   content: "";
   position: absolute;
-  inset: -18%;
+  inset: -20%;
   background: radial-gradient(
-      circle at 10% 0%,
+      circle at 12% 0%,
       rgba(129, 140, 248, 0.22),
       transparent 60%
     ),
     radial-gradient(
-      circle at 90% 100%,
+      circle at 88% 100%,
       rgba(96, 165, 250, 0.24),
       transparent 65%
     );
@@ -101,16 +112,16 @@
   width: 2px;
   flex: 0 0 2px;
   border-radius: 999px;
-  background: rgba(241, 245, 249, 0.9);
+  background: rgba(241, 245, 249, 0.95);
 }
 
-/* remove black backing, keep soft shadow on phones themselves */
+/* no black backing – just the phones with soft shadows */
 .hero-screen-half {
   flex: 1;
-  border-radius: 26px;
+  border-radius: 30px;
   padding: 0;
   background: transparent;
-  box-shadow: 0 22px 60px rgba(15, 23, 42, 0.32);
+  box-shadow: 0 22px 60px rgba(15, 23, 42, 0.3);
   overflow: hidden;
 }
 
@@ -118,7 +129,7 @@
   display: block;
   width: 100%;
   height: auto;
-  border-radius: 26px;
+  border-radius: 30px;
 }
 
 /* base float for the whole cluster */
@@ -175,30 +186,25 @@
 
 @media (min-width: 880px) {
   .hero {
-    padding: 48px 0 56px;
-    margin-bottom: 32px;
-    min-height: 90vh; /* even more presence on big screens */
-  }
-
-  .hero-inner {
-    gap: 24px;
+    padding: 56px 0 56px;
+    min-height: calc(100vh - 96px);
   }
 
   .hero-visual {
-    max-width: 520px;
+    max-width: 620px;
   }
 
   .hero-frame {
-    border-radius: 40px;
-    box-shadow: 0 32px 100px rgba(15, 23, 42, 0.26);
+    border-radius: 42px;
+    box-shadow: 0 40px 120px rgba(15, 23, 42, 0.3);
   }
 
   .hero-screen-half {
-    border-radius: 32px;
+    border-radius: 36px;
   }
 
   .hero-screen-half img {
-    border-radius: 32px;
+    border-radius: 36px;
   }
 
   .hero-support {
@@ -206,8 +212,8 @@
   }
 }
 
-@media (min-width: 1200px) {
+@media (min-width: 1280px) {
   .hero-visual {
-    max-width: 620px;
+    max-width: 700px;
   }
 }
