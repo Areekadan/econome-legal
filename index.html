@@ -2,25 +2,22 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>EconoMe — Budgeting that actually fits your life</title>
+    <title>EconoMe — Simple Budgeting App for Canadians</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta
       name="description"
-      content="EconoMe connects to your bank, auto-categorizes your spending, and turns it into clear reports so you can finally feel in control of your money."
+      content="EconoMe is a simple budgeting app for Canadians. Connect your bank, track spending, and see clear money reports without spreadsheets or ads."
     />
 
     <style>
       :root {
         color-scheme: light;
 
-        /* Core palette – tuned to your screenshots */
         --bg: #eef3ff;
         --bg-soft: #f5f7ff;
         --card: #ffffff;
-        --card-soft: #f9fafb;
 
         --border-subtle: #e5e7eb;
-        --border-strong: #d1d5db;
 
         --text-main: #0f172a;
         --text-muted: #6b7280;
@@ -31,16 +28,12 @@
         --primary-strong: #1d4ed8;
 
         --accent: #22c55e;
-        --accent-soft: #4ade80;
-
-        --pill: #e0edff;
-        --danger: #ef4444;
 
         --radius-lg: 28px;
         --radius-md: 18px;
 
-        --shadow-soft: 0 22px 60px rgba(15, 23, 42, 0.12);
-        --shadow-sm: 0 16px 40px rgba(15, 23, 42, 0.08);
+        --shadow-soft: 0 20px 50px rgba(15, 23, 42, 0.14);
+        --shadow-sm: 0 14px 30px rgba(15, 23, 42, 0.08);
       }
 
       * {
@@ -64,7 +57,7 @@
 
       .shell {
         width: 100%;
-        max-width: 1120px;
+        max-width: 1080px;
         margin: 0 auto;
         padding: 24px 20px 56px;
       }
@@ -99,7 +92,7 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        box-shadow: 0 10px 24px rgba(37, 99, 235, 0.45);
+        box-shadow: 0 10px 24px rgba(37, 99, 235, 0.36);
       }
 
       .brand-mark span {
@@ -128,8 +121,8 @@
       nav {
         display: flex;
         align-items: center;
-        gap: 20px;
-        font-size: 14px;
+        gap: 18px;
+        font-size: 13px;
       }
 
       nav a {
@@ -146,7 +139,7 @@
       .pill {
         display: inline-flex;
         align-items: center;
-        gap: 8px;
+        gap: 6px;
         padding: 4px 10px;
         border-radius: 999px;
         background: #e0f2fe;
@@ -160,14 +153,14 @@
         height: 8px;
         border-radius: 999px;
         background: #22c55e;
-        box-shadow: 0 0 0 4px rgba(34, 197, 94, 0.18);
+        box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.16);
       }
 
       /* Hero */
 
       .hero {
         display: grid;
-        grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+        grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
         gap: 36px;
         align-items: center;
         margin-bottom: 56px;
@@ -186,8 +179,8 @@
 
       .hero-copy h1 {
         font-size: clamp(32px, 4vw, 40px);
-        line-height: 1.15;
-        margin: 0 0 12px;
+        line-height: 1.12;
+        margin: 0 0 10px;
         letter-spacing: -0.04em;
       }
 
@@ -200,23 +193,23 @@
       .hero-tagline {
         font-size: 15px;
         color: var(--text-muted);
-        max-width: 32rem;
-        line-height: 1.6;
+        max-width: 30rem;
+        line-height: 1.5;
         margin-bottom: 18px;
       }
 
       .hero-points {
         display: flex;
         flex-wrap: wrap;
-        gap: 10px;
-        margin-bottom: 22px;
+        gap: 8px;
+        margin-bottom: 20px;
       }
 
       .pill-point {
         display: inline-flex;
         align-items: center;
-        gap: 8px;
-        padding: 7px 10px;
+        gap: 6px;
+        padding: 6px 10px;
         border-radius: 999px;
         font-size: 11px;
         border: 1px solid var(--border-subtle);
@@ -225,30 +218,30 @@
       }
 
       .pill-point span {
-        width: 16px;
-        height: 16px;
+        width: 14px;
+        height: 14px;
         border-radius: 999px;
         display: inline-flex;
         align-items: center;
         justify-content: center;
         background: #2563eb;
         color: #ffffff;
-        font-size: 11px;
+        font-size: 10px;
       }
 
       .hero-actions {
         display: flex;
         flex-wrap: wrap;
-        gap: 12px;
+        gap: 10px;
         align-items: center;
-        margin-bottom: 14px;
+        margin-bottom: 10px;
       }
 
       .btn {
         display: inline-flex;
         align-items: center;
         justify-content: center;
-        gap: 10px;
+        gap: 8px;
         padding: 11px 18px;
         border-radius: 999px;
         font-size: 14px;
@@ -276,9 +269,9 @@
       }
 
       .btn-ghost {
-        background: rgba(255, 255, 255, 0.8);
+        background: rgba(255, 255, 255, 0.9);
         color: var(--primary-strong);
-        border-color: #bfdbfe;
+        border-color: #cbd5f5;
       }
 
       .btn-ghost:hover {
@@ -296,61 +289,60 @@
         font-weight: 500;
       }
 
-      /* HERO PHONES – from screenshots */
+      /* HERO PHONES */
 
       .hero-phones {
         position: relative;
-        width: min(460px, 100%);
+        width: min(430px, 100%);
         margin-inline: auto;
-        height: 420px;
+        height: 400px;
       }
 
       .hero-phone {
         position: absolute;
         max-width: 52%;
         height: auto;
-        filter: drop-shadow(0 22px 60px rgba(15, 23, 42, 0.28));
+        filter: drop-shadow(0 22px 60px rgba(15, 23, 42, 0.24));
         opacity: 0;
       }
 
       .hero-phone--right {
-        right: -40px;
+        right: -34px;
         top: 40px;
-        transform: translateX(80px) rotate(4deg) scale(0.96);
+        transform: translateX(70px) rotate(4deg) scale(0.96);
         animation: heroPhoneRightIn 0.9s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
       }
 
       .hero-phone--left {
-        left: -40px;
-        bottom: 10px;
-        transform: translateX(-80px) rotate(-3deg) scale(0.96);
+        left: -34px;
+        bottom: 6px;
+        transform: translateX(-70px) rotate(-3deg) scale(0.96);
         animation: heroPhoneLeftIn 0.9s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
-        animation-delay: 0.35s;
+        animation-delay: 0.3s;
       }
 
       @keyframes heroPhoneRightIn {
         0% {
           opacity: 0;
-          transform: translateX(80px) rotate(4deg) scale(0.96);
+          transform: translateX(70px) rotate(4deg) scale(0.96);
         }
         100% {
           opacity: 1;
-          transform: translateX(10px) rotate(4deg) scale(1);
+          transform: translateX(8px) rotate(4deg) scale(1);
         }
       }
 
       @keyframes heroPhoneLeftIn {
         0% {
           opacity: 0;
-          transform: translateX(-80px) rotate(-3deg) scale(0.96);
+          transform: translateX(-70px) rotate(-3deg) scale(0.96);
         }
         100% {
           opacity: 1;
-          transform: translateX(-10px) rotate(-3deg) scale(1);
+          transform: translateX(-8px) rotate(-3deg) scale(1);
         }
       }
 
-      /* Respect reduced-motion preferences */
       @media (prefers-reduced-motion: reduce) {
         .hero-phone--right,
         .hero-phone--left {
@@ -371,10 +363,11 @@
       }
 
       /* Generic scroll-reveal */
+
       .reveal {
         opacity: 0;
-        transform: translateY(22px);
-        transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+        transform: translateY(18px);
+        transition: opacity 0.45s ease-out, transform 0.45s ease-out;
       }
 
       .reveal.is-visible {
@@ -385,7 +378,7 @@
       /* Sections */
 
       .section {
-        margin-bottom: 52px;
+        margin-bottom: 48px;
       }
 
       .section-header {
@@ -393,7 +386,7 @@
         justify-content: space-between;
         align-items: flex-end;
         gap: 16px;
-        margin-bottom: 24px;
+        margin-bottom: 22px;
       }
 
       .section-title {
@@ -404,15 +397,15 @@
       .section-sub {
         font-size: 13px;
         color: var(--text-soft);
-        max-width: 340px;
+        max-width: 320px;
       }
 
       /* Features */
 
       .features {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-        gap: 18px;
+        grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+        gap: 16px;
       }
 
       .feature-card {
@@ -439,35 +432,31 @@
       .feature-title {
         font-size: 15px;
         font-weight: 540;
-        margin-bottom: 6px;
+        margin-bottom: 4px;
       }
 
       .feature-body {
         font-size: 13px;
         color: var(--text-muted);
-        line-height: 1.55;
+        line-height: 1.45;
       }
 
-      /* Screenshot rows (“product tour”) */
+      /* Screens */
 
       .screens {
         border-radius: var(--radius-lg);
-        background: linear-gradient(
-          135deg,
-          #eef4ff 0%,
-          #ffffff 55%,
-          #e0f2fe 100%
-        );
-        padding: 22px 18px 20px;
+        background: var(--card);
+        padding: 20px 18px 18px;
         box-shadow: var(--shadow-sm);
+        border: 1px solid #dde3f5;
       }
 
       .screen-row {
         display: grid;
         grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.1fr);
-        gap: 28px;
+        gap: 26px;
         align-items: center;
-        margin-bottom: 26px;
+        margin-bottom: 24px;
       }
 
       .screen-row:last-child {
@@ -519,7 +508,7 @@
       .screen-duo {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
-        gap: 18px;
+        gap: 16px;
       }
 
       .screen-duo img {
@@ -540,7 +529,7 @@
         }
       }
 
-      /* Testimonial / why */
+      /* Testimonial */
 
       .testimonial {
         border-radius: var(--radius-lg);
@@ -551,7 +540,7 @@
           #ffffff 50%,
           #e0f2fe 100%
         );
-        padding: 18px 18px 16px;
+        padding: 16px 18px 14px;
         display: grid;
         grid-template-columns: minmax(0, 2fr) minmax(0, 1.1fr);
         gap: 16px;
@@ -568,7 +557,7 @@
       .testimonial-quote {
         font-size: 14px;
         color: var(--text-muted);
-        line-height: 1.6;
+        line-height: 1.5;
         margin-bottom: 6px;
       }
 
@@ -600,7 +589,7 @@
       }
 
       .testimonial-metric {
-        font-size: 26px;
+        font-size: 24px;
         font-weight: 600;
         margin-bottom: 2px;
       }
@@ -613,6 +602,31 @@
       }
 
       .testimonial-caption {
+        font-size: 12px;
+        color: var(--text-soft);
+      }
+
+      /* CTA */
+
+      .cta {
+        margin-top: 14px;
+        border-radius: var(--radius-lg);
+        padding: 16px 18px;
+        background: rgba(255, 255, 255, 0.9);
+        border: 1px solid #dbe3ff;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .cta-text {
+        font-size: 14px;
+        color: var(--text-main);
+      }
+
+      .cta-sub {
         font-size: 12px;
         color: var(--text-soft);
       }
@@ -655,7 +669,7 @@
             <div class="brand-mark"><span>ē</span></div>
             <div class="brand-text">
               <div class="brand-name">EconoMe</div>
-              <div class="brand-tagline">Budgeting that actually sticks</div>
+              <div class="brand-tagline">Simple budgeting, made for you</div>
             </div>
           </div>
 
@@ -665,7 +679,7 @@
               Built for Canadians
             </span>
             <a href="#features">Features</a>
-            <a href="#product">Product tour</a>
+            <a href="#product">Screens</a>
             <a href="#why">Why EconoMe</a>
             <a href="#learn-more">Privacy</a>
           </nav>
@@ -676,28 +690,29 @@
           <section class="hero">
             <div class="hero-copy">
               <div class="pill" style="margin-bottom: 10px">
-                🎯 A modern Mint replacement — without the ads or clutter
+                🎯 A clean Mint-style budgeting app for Canadians
               </div>
 
               <h1>
-                Budgeting that’s finally
-                <span class="highlight">built around your life.</span>
+                A simple
+                <span class="highlight">budgeting app</span>
+                that fits your life.
               </h1>
 
               <p class="hero-tagline">
-                Connect your accounts, set simple budgets, and let EconoMe keep
-                the math, trends, and alerts updated for you.
+                Connect your bank, set budgets, and let EconoMe keep your money
+                organized in the background.
               </p>
 
               <div class="hero-points">
                 <div class="pill-point">
-                  <span>✓</span> Connect Canadian banks &amp; cards
+                  <span>✓</span> Canadian banks &amp; cards
                 </div>
                 <div class="pill-point">
-                  <span>✓</span> Group &amp; item-level budgets
+                  <span>✓</span> Clear monthly budgets
                 </div>
                 <div class="pill-point">
-                  <span>✓</span> Clean reports you’ll actually check
+                  <span>✓</span> Automatic money reports
                 </div>
               </div>
 
@@ -709,28 +724,24 @@
                   Request early access
                 </a>
 
-                <a class="btn btn-ghost" href="#learn-more">
-                  See how we handle your data
-                </a>
+                <a class="btn btn-ghost" href="#product"> View app screens </a>
               </div>
 
               <p class="hero-caption">
-                <strong>Low effort, high clarity:</strong> check EconoMe once a
-                week — we’ll keep everything in sync in the background.
+                <strong>No ads. No clutter.</strong> Just a personal finance app
+                that’s easy to stick with.
               </p>
             </div>
 
             <!-- HERO PHONES (animated) -->
             <div class="hero-phones" aria-hidden="true">
-              <!-- Right phone flies in first -->
               <img
-                src="assets/screenshots/screen-dashboard-hero-2.png"
+                src="assets/screenshots/screen-dashboard-hero-1.png"
                 alt=""
                 class="hero-phone hero-phone--right"
               />
-              <!-- Left phone slides in after and “locks” with the first -->
               <img
-                src="assets/screenshots/screen-dashboard-hero-1.png"
+                src="assets/screenshots/screen-dashboard-hero-2.png"
                 alt=""
                 class="hero-phone hero-phone--left"
               />
@@ -742,11 +753,10 @@
             <div class="section-header">
               <div>
                 <div class="section-title">
-                  Built around how you actually spend
+                  Everything you need to stay on track
                 </div>
                 <div class="section-sub">
-                  Groups, items, rules, and reports — all synced so you always
-                  know what’s left and what’s coming.
+                  Simple tools that make day-to-day budgeting actually doable.
                 </div>
               </div>
             </div>
@@ -754,43 +764,40 @@
             <div class="features">
               <article class="feature-card reveal">
                 <div class="feature-icon">⇄</div>
-                <div class="feature-title">Bank-level sync</div>
+                <div class="feature-title">Connected accounts</div>
                 <p class="feature-body">
-                  Connect your accounts once via Plaid and let EconoMe keep your
-                  transactions up to date. No CSV uploads or manual entry
-                  marathons.
+                  Link your Canadian bank and credit cards once and let EconoMe
+                  pull in new transactions for you.
                 </p>
               </article>
 
               <article class="feature-card reveal">
                 <div class="feature-icon">✨</div>
-                <div class="feature-title">Smart categories &amp; rules</div>
+                <div class="feature-title">Smart categories</div>
                 <p class="feature-body">
-                  Create simple rules like “Spotify → Subscriptions” or
-                  “McDonald’s → Fast Food” and let every future transaction land
-                  in the right bucket automatically.
+                  Set simple rules for your favourite merchants so spending
+                  lands in the right budget every time.
                 </p>
               </article>
 
               <article class="feature-card reveal">
                 <div class="feature-icon">📊</div>
-                <div class="feature-title">Deep reports, zero spreadsheets</div>
+                <div class="feature-title">Clear money reports</div>
                 <p class="feature-body">
-                  Jump from a big-picture dashboard into group reports and
-                  individual item trends. Spot overspending before it snowballs
-                  and celebrate the categories that are actually working.
+                  See income, expenses, and savings at a glance with clean
+                  monthly and category reports.
                 </p>
               </article>
             </div>
           </section>
 
-          <!-- PRODUCT TOUR / SCREENSHOTS -->
+          <!-- PRODUCT TOUR / SCREENS -->
           <section class="section" id="product">
             <div class="section-header">
               <div>
-                <div class="section-title">See EconoMe in action</div>
+                <div class="section-title">See the budgeting app screens</div>
                 <div class="section-sub">
-                  A quick look at the core screens you’ll use week to week.
+                  A quick tour of the views you’ll use every week.
                 </div>
               </div>
             </div>
@@ -802,15 +809,14 @@
                   <div class="screen-tag"><span></span> Budgets</div>
                   <h3>Every dollar has a place.</h3>
                   <p>
-                    Organize spending into flexible groups and items so you can
-                    see exactly what’s left for groceries, going out, and
-                    everything in between.
+                    Create flexible groups and items so you always know what’s
+                    left in each budget.
                   </p>
                 </div>
                 <div class="screen-image">
                   <img
                     src="assets/screenshots/screen-budgets-every-dollar.png"
-                    alt="EconoMe budgets screen showing categories and remaining amounts."
+                    alt="Budgeting app view showing categories and remaining amounts."
                   />
                 </div>
               </div>
@@ -819,39 +825,40 @@
               <div class="screen-row screen-row--reverse reveal">
                 <div class="screen-copy">
                   <div class="screen-tag"><span></span> Transactions</div>
-                  <h3>Know exactly where your money goes.</h3>
+                  <h3>Know where your money goes.</h3>
                   <p>
-                    Clean daily views that tie every transaction back to your
-                    budgets, so you always know how each purchase affects the
-                    month.
+                    Daily spending, net flow, and categories in one clean
+                    transactions screen.
                   </p>
                 </div>
                 <div class="screen-image">
                   <img
                     src="assets/screenshots/screen-transactions-know-money.png"
-                    alt="EconoMe transactions screen showing recent purchases and net flow."
+                    alt="Transactions screen showing recent purchases and net flow."
                   />
                 </div>
               </div>
 
-              <!-- Alerts + Reports (duo) -->
+              <!-- Alerts + Reports -->
               <div class="screen-row reveal">
                 <div class="screen-copy">
-                  <div class="screen-tag"><span></span> Stay ahead</div>
-                  <h3>Smart alerts and reports, without the math.</h3>
+                  <div class="screen-tag">
+                    <span></span> Alerts &amp; reports
+                  </div>
+                  <h3>Stay ahead without doing math.</h3>
                   <p>
-                    Get gentle nudges before you overspend and simple reports
-                    that show trends over time — no spreadsheets required.
+                    Smart alerts and simple charts help you see trends before
+                    things go off track.
                   </p>
                 </div>
                 <div class="screen-duo">
                   <img
                     src="assets/screenshots/screen-alerts-smart.png"
-                    alt="Budget alerts screen showing spending threshold and safety net settings."
+                    alt="Budget alerts screen for spending thresholds and safety net."
                   />
                   <img
                     src="assets/screenshots/screen-reports-insights-no-math.png"
-                    alt="Reports screen showing income, expenses, and savings trend."
+                    alt="Money reports screen with income, expenses, and savings trend."
                   />
                 </div>
               </div>
@@ -859,18 +866,17 @@
               <!-- Drilldown -->
               <div class="screen-row screen-row--reverse reveal">
                 <div class="screen-copy">
-                  <div class="screen-tag"><span></span> Drilldown</div>
+                  <div class="screen-tag"><span></span> Deep dive</div>
                   <h3>From big picture to every detail.</h3>
                   <p>
-                    Tap into group and item reports to see exactly which
-                    categories are on track, which are drifting, and how things
-                    are trending month over month.
+                    Tap into group and item reports to see exactly which budgets
+                    are working.
                   </p>
                 </div>
                 <div class="screen-image">
                   <img
                     src="assets/screenshots/screen-reports-big-picture-detail.png"
-                    alt="Drilldown reports screen showing group and item-level insights."
+                    alt="Detailed budgeting reports showing group and item insights."
                   />
                 </div>
               </div>
@@ -881,11 +887,9 @@
           <section class="section" id="why">
             <div class="section-header">
               <div>
-                <div class="section-title">What using EconoMe feels like</div>
+                <div class="section-title">Why people use EconoMe</div>
                 <div class="section-sub">
-                  Less guilt, more clarity. You’ll finally know if you’re on
-                  track — and what needs to change — without staring at a
-                  spreadsheet.
+                  A budgeting app that feels calm instead of overwhelming.
                 </div>
               </div>
             </div>
@@ -897,29 +901,43 @@
                     >“Within a week I knew exactly where my paycheque was
                     going.”</strong
                   >
-                  I didn’t have to become a finance nerd — the app just showed
-                  me the story behind my spending.
+                  The app showed me what mattered without spreadsheets or
+                  homework.
                 </p>
                 <div class="testimonial-source">
-                  — Early EconoMe tester (former Mint user)
+                  — Early EconoMe tester, former Mint user
                 </div>
               </div>
 
               <div>
                 <div class="testimonial-tag">
-                  <span></span> Designed for long-term use, not just month one
+                  <span></span> Built for long-term use
                 </div>
-                <div style="margin-top: 10px">
+                <div style="margin-top: 8px">
                   <div class="testimonial-metric">
-                    60+ <span>categories tracked in one place</span>
+                    60+ <span>budget categories in one view</span>
                   </div>
                   <div class="testimonial-caption">
-                    From high-level groups like “Necessities” and “Lifestyle &
-                    Spending” down to groceries, rent, and fast food —
-                    everything stays in sync across budgets and reports.
+                    Essentials, lifestyle spending, subscriptions, and more —
+                    all synced across dashboards and reports.
                   </div>
                 </div>
               </div>
+            </div>
+
+            <div class="cta reveal">
+              <div>
+                <div class="cta-text">Want early access to EconoMe?</div>
+                <div class="cta-sub">
+                  Join the first group of Canadians using the app.
+                </div>
+              </div>
+              <a
+                class="btn btn-primary"
+                href="mailto:support@economeinc.com?subject=EconoMe%20beta%20access"
+              >
+                Get on the list
+              </a>
             </div>
           </section>
 
@@ -927,10 +945,10 @@
           <section class="section" id="learn-more">
             <div class="section-header">
               <div>
-                <div class="section-title">Privacy-first from day one</div>
+                <div class="section-title">Private by design</div>
                 <div class="section-sub">
-                  Your data stays your data. No ads, no selling your spending
-                  history, and no surprise “features” you never asked for.
+                  Your money data stays yours. No ads, no selling your
+                  information.
                 </div>
               </div>
             </div>
@@ -943,7 +961,7 @@
               "
             >
               EconoMe uses Plaid for secure bank connections and Firebase for
-              authentication and storage. You can see all the details in our
+              authentication and storage. Learn more in our
               <a href="privacy-policy.html" style="color: var(--primary-strong)"
                 >Privacy Policy</a
               >,
@@ -952,8 +970,7 @@
               >, and
               <a href="data-retention.html" style="color: var(--primary-strong)"
                 >Data Deletion &amp; Retention Policy</a
-              >. Everything is written in plain language so you know exactly
-              what’s happening behind the scenes.
+              >.
             </p>
           </section>
         </main>
@@ -997,7 +1014,6 @@
 
         revealEls.forEach((el) => observer.observe(el));
       } else {
-        // fallback: show everything
         revealEls.forEach((el) => el.classList.add("is-visible"));
       }
     </script>
