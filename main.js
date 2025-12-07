@@ -46,62 +46,27 @@ scrollTopBtn.addEventListener("click", () => {
 });
 
 // ----- Show header only while scrolling -----
-// (function () {
-//   const headerWrap = document.querySelector(".shell-header-wrap");
-//   if (!headerWrap) return;
-
-//   let hideTimeout = null;
-
-//   function showHeaderWhileScrolling() {
-//     // only show once user has actually scrolled a bit
-//     if (window.scrollY < 20) return;
-
-//     headerWrap.classList.add("is-active");
-
-//     if (hideTimeout) clearTimeout(hideTimeout);
-
-//     // hide shortly after scrolling stops
-//     hideTimeout = setTimeout(() => {
-//       headerWrap.classList.remove("is-active");
-//     }, 600); // tweak duration if you want
-//   }
-
-//   window.addEventListener("scroll", showHeaderWhileScrolling, {
-//     passive: true,
-//   });
-// })();
-
-// ----- Show header only while scrolling (desktop only) -----
 (function () {
   const headerWrap = document.querySelector(".shell-header-wrap");
   if (!headerWrap) return;
 
   let hideTimeout = null;
 
-  function handleScroll() {
-    const isDesktop = window.matchMedia("(min-width: 769px)").matches;
-
-    // never show header on mobile
-    if (!isDesktop) {
-      headerWrap.classList.remove("is-active");
-      return;
-    }
-
-    const y = window.scrollY || window.pageYOffset;
-
-    // don't show when right at the very top
-    if (y < 40) {
-      headerWrap.classList.remove("is-active");
-      return;
-    }
+  function showHeaderWhileScrolling() {
+    // only show once user has actually scrolled a bit
+    if (window.scrollY < 20) return;
 
     headerWrap.classList.add("is-active");
 
     if (hideTimeout) clearTimeout(hideTimeout);
+
+    // hide shortly after scrolling stops
     hideTimeout = setTimeout(() => {
       headerWrap.classList.remove("is-active");
-    }, 700); // how long it stays visible after scroll stops
+    }, 1000); // tweak duration if you want
   }
 
-  window.addEventListener("scroll", handleScroll, { passive: true });
+  window.addEventListener("scroll", showHeaderWhileScrolling, {
+    passive: true,
+  });
 })();
