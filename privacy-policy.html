@@ -1,400 +1,411 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <title>EconoMe — Privacy Policy</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <style>
-    :root {
-      --bg: #f9fafb;
-      --card-bg: #ffffff;
-      --border: #e5e7eb;
-      --text-main: #111827;
-      --text-muted: #6b7280;
-      --accent: #16a34a;
-      --accent-soft: #dcfce7;
-      --heading: #020617;
-      --link: #2563eb;
-    }
-
-    * {
-      box-sizing: border-box;
-    }
-
-    body {
-      margin: 0;
-      padding: 0;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
-        sans-serif;
-      background-color: var(--bg);
-      color: var(--text-main);
-      line-height: 1.6;
-    }
-
-    .page {
-      min-height: 100vh;
-      display: flex;
-      align-items: flex-start;
-      justify-content: center;
-      padding: 32px 16px;
-    }
-
-    .container {
-      width: 100%;
-      max-width: 840px;
-      background-color: var(--card-bg);
-      border-radius: 18px;
-      border: 1px solid var(--border);
-      padding: 28px 22px 32px;
-      box-shadow: 0 18px 45px rgba(15, 23, 42, 0.08);
-    }
-
-    @media (min-width: 768px) {
-      .container {
-        padding: 36px 32px 40px;
+  <head>
+    <meta charset="UTF-8" />
+    <title>EconoMe — Privacy Policy</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+      :root {
+        --bg: #f9fafb;
+        --card-bg: #ffffff;
+        --border: #e5e7eb;
+        --text-main: #111827;
+        --text-muted: #6b7280;
+        --accent: #16a34a;
+        --accent-soft: #dcfce7;
+        --heading: #020617;
+        --link: #2563eb;
       }
-    }
 
-    .badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.35rem;
-      padding: 4px 10px;
-      border-radius: 999px;
-      background-color: var(--accent-soft);
-      color: #166534;
-      font-size: 11px;
-      font-weight: 600;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-      margin-bottom: 8px;
-    }
+      * {
+        box-sizing: border-box;
+      }
 
-    .badge-dot {
-      width: 6px;
-      height: 6px;
-      border-radius: 999px;
-      background-color: var(--accent);
-    }
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+          sans-serif;
+        background-color: var(--bg);
+        color: var(--text-main);
+        line-height: 1.6;
+      }
 
-    h1 {
-      font-size: 26px;
-      line-height: 1.2;
-      margin: 0 0 4px;
-      color: var(--heading);
-    }
+      .page {
+        min-height: 100vh;
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+        padding: 32px 16px;
+      }
 
-    .meta {
-      font-size: 13px;
-      color: var(--text-muted);
-      margin-bottom: 18px;
-    }
+      .container {
+        width: 100%;
+        max-width: 840px;
+        background-color: var(--card-bg);
+        border-radius: 18px;
+        border: 1px solid var(--border);
+        padding: 28px 22px 32px;
+        box-shadow: 0 18px 45px rgba(15, 23, 42, 0.08);
+      }
 
-    .meta span + span::before {
-      content: "•";
-      margin: 0 6px;
-      color: var(--border);
-    }
+      @media (min-width: 768px) {
+        .container {
+          padding: 36px 32px 40px;
+        }
+      }
 
-    hr.section-divider {
-      border: none;
-      border-top: 1px solid var(--border);
-      margin: 20px 0 24px;
-    }
+      .badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.35rem;
+        padding: 4px 10px;
+        border-radius: 999px;
+        background-color: var(--accent-soft);
+        color: #166534;
+        font-size: 11px;
+        font-weight: 600;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+        margin-bottom: 8px;
+      }
 
-    h2 {
-      font-size: 18px;
-      margin: 26px 0 6px;
-      color: var(--heading);
-    }
+      .badge-dot {
+        width: 6px;
+        height: 6px;
+        border-radius: 999px;
+        background-color: var(--accent);
+      }
 
-    h3 {
-      font-size: 15px;
-      margin: 18px 0 4px;
-      color: #0f172a;
-    }
+      h1 {
+        font-size: 26px;
+        line-height: 1.2;
+        margin: 0 0 4px;
+        color: var(--heading);
+      }
 
-    p {
-      margin: 4px 0 10px;
-      font-size: 14px;
-    }
+      .meta {
+        font-size: 13px;
+        color: var(--text-muted);
+        margin-bottom: 18px;
+      }
 
-    ul {
-      margin: 4px 0 12px 20px;
-      padding-left: 0;
-      font-size: 14px;
-    }
+      .meta span + span::before {
+        content: "•";
+        margin: 0 6px;
+        color: var(--border);
+      }
 
-    li {
-      margin-bottom: 4px;
-    }
+      hr.section-divider {
+        border: none;
+        border-top: 1px solid var(--border);
+        margin: 20px 0 24px;
+      }
 
-    a {
-      color: var(--link);
-      text-decoration: underline;
-      text-decoration-thickness: 1px;
-      text-underline-offset: 2px;
-    }
+      h2 {
+        font-size: 18px;
+        margin: 26px 0 6px;
+        color: var(--heading);
+      }
 
-    a:hover {
-      text-decoration-thickness: 2px;
-    }
+      h3 {
+        font-size: 15px;
+        margin: 18px 0 4px;
+        color: #0f172a;
+      }
 
-    .highlight-box {
-      border-radius: 14px;
-      border: 1px solid #d1fae5;
-      background: #f0fdf4;
-      padding: 10px 12px;
-      font-size: 13px;
-      margin: 8px 0 14px;
-    }
+      p {
+        margin: 4px 0 10px;
+        font-size: 14px;
+      }
 
-    .highlight-title {
-      font-weight: 600;
-      color: #065f46;
-      margin-bottom: 4px;
-      font-size: 13px;
-    }
+      ul {
+        margin: 4px 0 12px 20px;
+        padding-left: 0;
+        font-size: 14px;
+      }
 
-    .contact-block {
-      margin-top: 20px;
-      padding: 12px 14px;
-      border-radius: 14px;
-      background-color: #f9fafb;
-      border: 1px dashed var(--border);
-      font-size: 13px;
-    }
+      li {
+        margin-bottom: 4px;
+      }
 
-    .contact-block p {
-      margin: 2px 0;
-    }
+      a {
+        color: var(--link);
+        text-decoration: underline;
+        text-decoration-thickness: 1px;
+        text-underline-offset: 2px;
+      }
 
-    .footer-note {
-      margin-top: 22px;
-      font-size: 12px;
-      color: var(--text-muted);
-    }
-  </style>
-</head>
-<body>
-  <div class="page">
-    <main class="container">
-      <div class="badge">
-        <span class="badge-dot"></span>
-        <span>Privacy Policy</span>
-      </div>
+      a:hover {
+        text-decoration-thickness: 2px;
+      }
 
-      <h1>EconoMe — Privacy Policy</h1>
+      .highlight-box {
+        border-radius: 14px;
+        border: 1px solid #d1fae5;
+        background: #f0fdf4;
+        padding: 10px 12px;
+        font-size: 13px;
+        margin: 8px 0 14px;
+      }
 
-      <div class="meta">
-        <span>Version 1.1</span>
-        <span>Last Updated: December 2025</span>
-      </div>
+      .highlight-title {
+        font-weight: 600;
+        color: #065f46;
+        margin-bottom: 4px;
+        font-size: 13px;
+      }
 
-      <p>
-        EconoMe Inc. (“EconoMe,” “we,” “our,” or “us”) is committed to protecting
-        your privacy. This Privacy Policy describes how we collect, use, disclose,
-        store, and protect your personal information when you use the EconoMe
-        mobile application (“App”) and related services.
-      </p>
-      <p>
-        By using EconoMe, you agree to the practices described in this Policy.
-      </p>
+      .contact-block {
+        margin-top: 20px;
+        padding: 12px 14px;
+        border-radius: 14px;
+        background-color: #f9fafb;
+        border: 1px dashed var(--border);
+        font-size: 13px;
+      }
 
-      <hr class="section-divider" />
+      .contact-block p {
+        margin: 2px 0;
+      }
 
-      <h2>1. Information We Collect</h2>
+      .footer-note {
+        margin-top: 22px;
+        font-size: 12px;
+        color: var(--text-muted);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page">
+      <main class="container">
+        <div class="badge">
+          <span class="badge-dot"></span>
+          <span>Privacy Policy</span>
+        </div>
 
-      <h3>1.1 Account Information</h3>
-      <p>When you create an account, we collect:</p>
-      <ul>
-        <li>Email address</li>
-        <li>Password or OAuth authentication tokens</li>
-        <li>Device information</li>
-        <li>Optional profile information (e.g., name)</li>
-      </ul>
-      <p>Authentication is handled through Firebase Authentication.</p>
+        <h1>EconoMe — Privacy Policy</h1>
 
-      <h3>1.2 Financial Data (via Plaid)</h3>
-      <p>When you link a financial institution, we receive data through Plaid, including:</p>
-      <ul>
-        <li>Account names</li>
-        <li>Account types</li>
-        <li>Account balances</li>
-        <li>Transaction history</li>
-        <li>Institution metadata</li>
-      </ul>
-      <p>
-        We never collect or store your bank login credentials (usernames,
-        passwords, or multi-factor authentication codes).
-      </p>
+        <div class="meta">
+          <span>Version 1.1</span>
+          <span>Last Updated: December 2025</span>
+        </div>
 
-      <div class="highlight-box">
-        <div class="highlight-title">Plaid Required Disclosure</div>
-        <p style="margin: 0;">
-          EconoMe uses Plaid Inc. (“Plaid”) to connect your financial accounts.
-          By using our App and linking a financial institution, you acknowledge
-          and agree that your data will be transferred to Plaid and handled in
-          accordance with the
-          <a href="https://plaid.com/legal" target="_blank" rel="noopener noreferrer">
-            Plaid Privacy Policy
-          </a>.
-        </p>
-      </div>
-
-      <h3>1.3 Budgeting &amp; User-Generated Data</h3>
-      <p>We collect the information you enter into the App, including:</p>
-      <ul>
-        <li>Budget categories</li>
-        <li>Notes, labels, and custom categorizations</li>
-        <li>Linked account names</li>
-        <li>Reports and summaries you view or create</li>
-      </ul>
-
-      <h3>1.4 Technical &amp; Usage Data</h3>
-      <p>We collect limited technical information such as:</p>
-      <ul>
-        <li>Crash logs</li>
-        <li>Device type and operating system version</li>
-        <li>Basic performance metrics</li>
-      </ul>
-
-      <h3>1.5 Advertising &amp; Tracking</h3>
-      <p>EconoMe does <strong>not</strong>:</p>
-      <ul>
-        <li>Use advertising networks</li>
-        <li>Use cross-app tracking</li>
-        <li>Use third-party marketing SDKs</li>
-        <li>Use behavioral or targeted advertising</li>
-      </ul>
-      <p>We do not collect advertising identifiers (IDFA/AAID).</p>
-
-      <h2>2. How We Use Your Information</h2>
-      <p>We use your data to:</p>
-      <ul>
-        <li>Provide budgeting and reporting features</li>
-        <li>Sync financial accounts and transactions via Plaid</li>
-        <li>Generate insights, analytics, and spending summaries</li>
-        <li>Maintain app performance, reliability, and security</li>
-        <li>Offer customer support</li>
-      </ul>
-      <p>
-        We do not use your financial data for advertising, profiling, or resale.
-      </p>
-
-      <h2>3. How We Share Information</h2>
-
-      <h3>3.1 Service Providers</h3>
-      <p>We only share data with essential service providers:</p>
-      <ul>
-        <li>Firebase (authentication, database, and secure storage)</li>
-        <li>Plaid (account linking and financial data retrieval)</li>
-      </ul>
-      <p>These providers follow strict industry security standards.</p>
-
-      <h3>3.2 No Data Selling</h3>
-      <p>EconoMe does not:</p>
-      <ul>
-        <li>Sell personal information</li>
-        <li>Rent personal information</li>
-        <li>Share data with marketers or advertisers</li>
-      </ul>
-
-      <h3>3.3 Legal Requirements</h3>
-      <p>
-        We may disclose information only when required by:
-      </p>
-      <ul>
-        <li>Law</li>
-        <li>Court order</li>
-        <li>Regulatory obligation</li>
-      </ul>
-
-      <h2>4. Data Security</h2>
-      <p>We rely on Firebase and Google Cloud security controls, including:</p>
-      <ul>
-        <li>Encryption in transit (TLS)</li>
-        <li>Encryption at rest</li>
-        <li>Strict access management</li>
-        <li>Multi-factor authentication for administrative access</li>
-        <li>Principle of least privilege</li>
-      </ul>
-      <p>We never store bank credentials.</p>
-
-      <h2>5. Data Retention &amp; Deletion</h2>
-      <p>We retain user data only as long as needed to operate the service.</p>
-      <p>If you request account deletion:</p>
-      <ul>
-        <li>
-          All personal, budgeting, and transaction data is deleted from Firestore
-          within 48 hours
-        </li>
-        <li>Plaid access tokens are immediately revoked</li>
-        <li>
-          Backups are purged automatically within up to 30 days in accordance
-          with Google Cloud’s lifecycle policies
-        </li>
-      </ul>
-      <p>
-        You may delete your account directly inside the App, or request deletion
-        by emailing:
-        <a href="mailto:support@economeinc.com">support@economeinc.com</a>.
-      </p>
-
-      <h2>6. Data Minimization</h2>
-      <p>We collect only what is necessary to:</p>
-      <ul>
-        <li>Provide budgeting functions</li>
-        <li>Maintain app performance</li>
-        <li>Deliver user-requested features</li>
-      </ul>
-      <p>We do not store unnecessary financial information.</p>
-
-      <h2>7. Children’s Privacy</h2>
-      <p>
-        EconoMe is not intended for children under 13. We do not knowingly
-        collect personal information from children under 13.
-      </p>
-
-      <h2>8. International Data Transfers</h2>
-      <p>
-        Data may be processed in Canada or the United States, depending on
-        Firebase and Plaid infrastructure. All transfers comply with applicable
-        privacy laws, including PIPEDA.
-      </p>
-
-      <h2>9. Your Rights</h2>
-      <p>You may request to:</p>
-      <ul>
-        <li>Access your personal information</li>
-        <li>Correct inaccurate or incomplete information</li>
-        <li>Request deletion of your data</li>
-        <li>Obtain a copy of your data</li>
-        <li>Withdraw consent where applicable</li>
-      </ul>
-      <p>To exercise these rights, contact us using the email below.</p>
-
-      <h2>10. Policy Updates</h2>
-      <p>
-        We may update this Policy periodically. Significant changes will be
-        communicated in-app or through other appropriate channels. The “Last
-        Updated” date at the top of this page reflects the most recent changes.
-      </p>
-
-      <h2>11. Contact Information</h2>
-      <div class="contact-block">
-        <p><strong>EconoMe Inc.</strong></p>
         <p>
-          Email:
-          <a href="mailto:support@economeinc.com">support@economeinc.com</a>
+          EconoMe Inc. (“EconoMe,” “we,” “our,” or “us”) is committed to
+          protecting your privacy. This Privacy Policy describes how we collect,
+          use, disclose, store, and protect your personal information when you
+          use the EconoMe mobile application (“App”) and related services.
         </p>
-      </div>
-      
-      <p class="footer-note">
-        If you have any questions about this Privacy Policy or how your data is handled,
-        please contact us at the email address above.
-      </p>
-    </main>
-  </div>
-</body>
+        <p>
+          By using EconoMe, you agree to the practices described in this Policy.
+        </p>
+
+        <hr class="section-divider" />
+
+        <h2>1. Information We Collect</h2>
+
+        <h3>1.1 Account Information</h3>
+        <p>When you create an account, we collect:</p>
+        <ul>
+          <li>Email address</li>
+          <li>Password or OAuth authentication tokens</li>
+          <li>Device information</li>
+          <li>Optional profile information (e.g., name)</li>
+        </ul>
+        <p>Authentication is handled through Firebase Authentication.</p>
+
+        <h3>1.2 Financial Data (via Plaid)</h3>
+        <p>
+          When you link a financial institution, we receive data through Plaid,
+          including:
+        </p>
+        <ul>
+          <li>Account names</li>
+          <li>Account types</li>
+          <li>Account balances</li>
+          <li>Transaction history</li>
+          <li>Institution metadata</li>
+        </ul>
+        <p>
+          We never collect or store your bank login credentials (usernames,
+          passwords, or multi-factor authentication codes).
+        </p>
+
+        <div class="highlight-box">
+          <div class="highlight-title">Plaid Required Disclosure</div>
+          <p style="margin: 0">
+            EconoMe uses Plaid Inc. (“Plaid”) to connect your financial
+            accounts. By using our App and linking a financial institution, you
+            acknowledge and agree that your data will be transferred to Plaid
+            and handled in accordance with the
+            <a
+              href="https://plaid.com/legal/#consumers"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Plaid Privacy Policy </a
+            >.
+          </p>
+        </div>
+
+        <h3>1.3 Budgeting &amp; User-Generated Data</h3>
+        <p>We collect the information you enter into the App, including:</p>
+        <ul>
+          <li>Budget categories</li>
+          <li>Notes, labels, and custom categorizations</li>
+          <li>Linked account names</li>
+          <li>Reports and summaries you view or create</li>
+        </ul>
+
+        <h3>1.4 Technical &amp; Usage Data</h3>
+        <p>We collect limited technical information such as:</p>
+        <ul>
+          <li>Crash logs</li>
+          <li>Device type and operating system version</li>
+          <li>Basic performance metrics</li>
+        </ul>
+
+        <h3>1.5 Advertising &amp; Tracking</h3>
+        <p>EconoMe does <strong>not</strong>:</p>
+        <ul>
+          <li>Use advertising networks</li>
+          <li>Use cross-app tracking</li>
+          <li>Use third-party marketing SDKs</li>
+          <li>Use behavioral or targeted advertising</li>
+        </ul>
+        <p>We do not collect advertising identifiers (IDFA/AAID).</p>
+
+        <h2>2. How We Use Your Information</h2>
+        <p>We use your data to:</p>
+        <ul>
+          <li>Provide budgeting and reporting features</li>
+          <li>Sync financial accounts and transactions via Plaid</li>
+          <li>Generate insights, analytics, and spending summaries</li>
+          <li>Maintain app performance, reliability, and security</li>
+          <li>Offer customer support</li>
+        </ul>
+        <p>
+          We do not use your financial data for advertising, profiling, or
+          resale.
+        </p>
+
+        <h2>3. How We Share Information</h2>
+
+        <h3>3.1 Service Providers</h3>
+        <p>We only share data with essential service providers:</p>
+        <ul>
+          <li>Firebase (authentication, database, and secure storage)</li>
+          <li>Plaid (account linking and financial data retrieval)</li>
+        </ul>
+        <p>These providers follow strict industry security standards.</p>
+
+        <h3>3.2 No Data Selling</h3>
+        <p>EconoMe does not:</p>
+        <ul>
+          <li>Sell personal information</li>
+          <li>Rent personal information</li>
+          <li>Share data with marketers or advertisers</li>
+        </ul>
+
+        <h3>3.3 Legal Requirements</h3>
+        <p>We may disclose information only when required by:</p>
+        <ul>
+          <li>Law</li>
+          <li>Court order</li>
+          <li>Regulatory obligation</li>
+        </ul>
+
+        <h2>4. Data Security</h2>
+        <p>
+          We rely on Firebase and Google Cloud security controls, including:
+        </p>
+        <ul>
+          <li>Encryption in transit (TLS)</li>
+          <li>Encryption at rest</li>
+          <li>Strict access management</li>
+          <li>Multi-factor authentication for administrative access</li>
+          <li>Principle of least privilege</li>
+        </ul>
+        <p>We never store bank credentials.</p>
+
+        <h2>5. Data Retention &amp; Deletion</h2>
+        <p>
+          We retain user data only as long as needed to operate the service.
+        </p>
+        <p>If you request account deletion:</p>
+        <ul>
+          <li>
+            All personal, budgeting, and transaction data is deleted from
+            Firestore within 48 hours
+          </li>
+          <li>Plaid access tokens are immediately revoked</li>
+          <li>
+            Backups are purged automatically within up to 30 days in accordance
+            with Google Cloud’s lifecycle policies
+          </li>
+        </ul>
+        <p>
+          You may delete your account directly inside the App, or request
+          deletion by emailing:
+          <a href="mailto:support@economeinc.com">support@economeinc.com</a>.
+        </p>
+
+        <h2>6. Data Minimization</h2>
+        <p>We collect only what is necessary to:</p>
+        <ul>
+          <li>Provide budgeting functions</li>
+          <li>Maintain app performance</li>
+          <li>Deliver user-requested features</li>
+        </ul>
+        <p>We do not store unnecessary financial information.</p>
+
+        <h2>7. Children’s Privacy</h2>
+        <p>
+          EconoMe is not intended for children under 13. We do not knowingly
+          collect personal information from children under 13.
+        </p>
+
+        <h2>8. International Data Transfers</h2>
+        <p>
+          Data may be processed in Canada or the United States, depending on
+          Firebase and Plaid infrastructure. All transfers comply with
+          applicable privacy laws, including PIPEDA.
+        </p>
+
+        <h2>9. Your Rights</h2>
+        <p>You may request to:</p>
+        <ul>
+          <li>Access your personal information</li>
+          <li>Correct inaccurate or incomplete information</li>
+          <li>Request deletion of your data</li>
+          <li>Obtain a copy of your data</li>
+          <li>Withdraw consent where applicable</li>
+        </ul>
+        <p>To exercise these rights, contact us using the email below.</p>
+
+        <h2>10. Policy Updates</h2>
+        <p>
+          We may update this Policy periodically. Significant changes will be
+          communicated in-app or through other appropriate channels. The “Last
+          Updated” date at the top of this page reflects the most recent
+          changes.
+        </p>
+
+        <h2>11. Contact Information</h2>
+        <div class="contact-block">
+          <p><strong>EconoMe Inc.</strong></p>
+          <p>
+            Email:
+            <a href="mailto:support@economeinc.com">support@economeinc.com</a>
+          </p>
+        </div>
+
+        <p class="footer-note">
+          If you have any questions about this Privacy Policy or how your data
+          is handled, please contact us at the email address above.
+        </p>
+      </main>
+    </div>
+  </body>
 </html>
