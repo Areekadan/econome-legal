@@ -44,3 +44,15 @@ window.addEventListener("scroll", () => {
 scrollTopBtn.addEventListener("click", () => {
   window.scrollTo({ top: 0, behavior: "smooth" });
 });
+
+// Hero title word-drop animation
+const heroTitle = document.querySelector(".hero-title");
+
+if (heroTitle) {
+  window.addEventListener("load", () => {
+    // small timeout so it feels intentional, not janky
+    setTimeout(() => {
+      heroTitle.classList.add("is-animated");
+    }, 250);
+  });
+}

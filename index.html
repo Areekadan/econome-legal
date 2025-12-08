@@ -10,6 +10,12 @@
     />
 
     <!-- Split styles -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="styles/base.css" />
     <link rel="stylesheet" href="styles/header.css" />
     <link rel="stylesheet" href="styles/hero.css" />
@@ -25,11 +31,11 @@
         <div class="shell-header-wrap">
           <header>
             <div class="brand">
-              <img
-                src="assets/header/logo.png"
-                alt="EconoMe logo"
-                class="brand-logo"
-              />
+              <div class="brand-mark"><span>ē</span></div>
+              <div class="brand-text">
+                <div class="brand-name">EconoMe</div>
+                <div class="brand-tagline">Simple budgeting for Canadians</div>
+              </div>
             </div>
 
             <nav class="header-nav">
@@ -66,12 +72,14 @@
               <div class="hero-inner">
                 <!-- Left: clean headline -->
                 <div class="hero-text">
-                  <p class="hero-eyebrow">Budgeting, made for Canadians</p>
-
                   <h1 class="hero-title">
-                    Budgeting,<br />
-                    made<br />
-                    beautifully <span class="hero-title-accent">simple.</span>
+                    <span class="hero-word" data-order="4">Budgeting,</span
+                    ><br />
+                    <span class="hero-word" data-order="3">made</span><br />
+                    <span class="hero-word" data-order="2">beautifully</span>
+                    <span class="hero-word hero-title-accent" data-order="1"
+                      >simple.</span
+                    >
                   </h1>
                 </div>
 

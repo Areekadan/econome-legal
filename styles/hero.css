@@ -2,26 +2,23 @@
 /* Mobile-first: hero content inside a white floating card */
 
 .hero {
-  padding: 20px 0 44px;
+  padding: 20px 0 40px; /* shorter overall section */
   margin-bottom: 8px;
 }
 
 /* The card that holds text + device */
 .hero-card {
   width: 100%;
-  border-radius: 28px;
   background: #ffffff; /* pure white */
-  border: 1px solid rgba(226, 232, 240, 0.9); /* subtle border */
-  box-shadow: 0 20px 60px rgba(15, 23, 42, 0.14);
-  padding: 20px 18px 22px;
+  padding: 18px 18px 20px; /* reduced vertical padding */
   display: flex;
 }
 
-/* Inner layout: text then device on mobile */
+/* Inner layout */
 .hero-inner {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 16px; /* a bit tighter */
   align-items: flex-start;
 }
 
@@ -31,19 +28,12 @@
   text-align: left;
 }
 
-.hero-eyebrow {
-  font-size: 12px;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--text-soft);
-  margin: 0 0 8px;
-}
-
+/* Bigger but not crazy on mobile */
 .hero-title {
   margin: 0;
-  font-size: clamp(24px, 6.5vw, 30px);
+  font-size: clamp(26px, 8vw, 34px);
   line-height: 1.05;
-  letter-spacing: -0.045em;
+  letter-spacing: -0.055em;
   color: var(--text-main);
 }
 
@@ -56,13 +46,14 @@
 .hero-visual {
   width: 100%;
   display: flex;
-  justify-content: flex-start;
+  justify-content: center; /* center phone under text on small screens */
 }
 
 .hero-device {
   width: 100%;
-  max-width: min(240px, 65vw); /* slightly smaller on mobile */
-  margin-top: 8px;
+  max-width: 220px; /* smaller phone => shorter card */
+  margin-top: 6px;
+  margin-bottom: 2px;
   filter: none; /* no shadow – blends with card */
 }
 
@@ -77,11 +68,11 @@
 /* Really narrow phones ------------------------------------------ */
 @media (max-width: 380px) {
   .hero-title {
-    font-size: 22px;
+    font-size: 24px;
   }
 
   .hero-device {
-    max-width: 220px;
+    max-width: 200px;
   }
 }
 
@@ -89,31 +80,27 @@
 
 @media (min-width: 880px) {
   .hero {
-    padding: 40px 0 64px;
-    display: flex;
-    align-items: center;
+    padding: 30px 0 52px; /* still a bit generous but shorter */
   }
 
   .hero-card {
-    padding: 32px 32px 34px;
-    border-radius: 32px;
-    background: #ffffff;
-    box-shadow: 0 26px 70px rgba(15, 23, 42, 0.16);
+    padding: 26px 30px 30px; /* trimmed desktop padding */
   }
 
   .hero-inner {
-    flex-direction: row;
-    align-items: center;
+    flex-direction: row; /* text left, phone right */
+    align-items: flex-start; /* stick to top */
     justify-content: space-between;
-    gap: 48px;
+    gap: 44px;
   }
 
   .hero-text {
-    max-width: 420px;
+    max-width: 440px;
   }
 
   .hero-title {
-    font-size: clamp(34px, 3.6vw, 44px);
+    font-size: clamp(42px, 4.2vw, 56px);
+    line-height: 1.03;
   }
 
   .hero-visual {
@@ -121,9 +108,8 @@
   }
 
   .hero-device {
-    max-width: 340px; /* cap phone size on desktop */
-    margin-top: 0;
-    filter: none; /* still no shadow on desktop */
+    max-width: 330px; /* slightly smaller than before */
+    margin-top: 4px;
   }
 
   .hero-device img {
@@ -132,11 +118,76 @@
 }
 
 @media (min-width: 1280px) {
-  .hero-card {
-    border-radius: 36px;
-  }
-
   .hero-device {
-    max-width: 340px;
+    max-width: 330px; /* keep same cap so card height stays tight */
+  }
+}
+
+/* HERO TITLE ANIMATION ------------------------------------------ */
+
+.hero-title {
+  position: relative;
+  overflow: hidden; /* keeps the falling motion clean */
+}
+
+.hero-word {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(-18px);
+}
+
+/* APPLY TWO-PHASE ANIMATION TO EACH WORD */
+.hero-title.is-animated .hero-word {
+  /* 1) rise up, 2) settle down */
+  animation-name: heroWordRise, heroWordSettle;
+  animation-duration: 1.2s, 1.4s; /* slower settle */
+  animation-timing-function: cubic-bezier(0.19, 1, 0.22, 1),
+    cubic-bezier(0.19, 1, 0.22, 1);
+  animation-fill-mode: forwards, forwards;
+}
+
+/* "simple." (order 1) */
+.hero-title.is-animated .hero-word[data-order="1"] {
+  animation-delay: 0.5s, 4s;
+}
+
+/* "beautifully" (order 2) */
+.hero-title.is-animated .hero-word[data-order="2"] {
+  animation-delay: 1s, 3.7s;
+}
+
+/* "made" (order 3) */
+.hero-title.is-animated .hero-word[data-order="3"] {
+  animation-delay: 1.5s, 3.4s;
+}
+
+/* "Budgeting," (order 4) */
+.hero-title.is-animated .hero-word[data-order="4"] {
+  animation-delay: 2s, 3.1s;
+}
+
+/* PHASE 1: bottom → top (overshoot) */
+@keyframes heroWordRise {
+  0% {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  60% {
+    opacity: 1;
+    transform: translateY(-6px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(-6px);
+  }
+}
+
+/* PHASE 2: top → final position */
+@keyframes heroWordSettle {
+  0% {
+    transform: translateY(-6px);
+  }
+  100% {
+    transform: translateY(0);
   }
 }
