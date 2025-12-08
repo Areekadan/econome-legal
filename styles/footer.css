@@ -1,0 +1,131 @@
+/* FOOTER -------------------------------------------------------- */
+
+.site-footer {
+  margin-top: 56px;
+  padding: 32px 0 24px;
+  border-top: 1px solid var(--border-subtle);
+  background: #f9fafb;
+  font-size: 13px;
+  color: #4b5563;
+}
+
+/* Make footer respect the main shell width */
+.site-footer .footer-grid,
+.site-footer .footer-bottom {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 8px 16px;
+}
+
+/* Top layout: columns ------------------------------------------ */
+
+.footer-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin-bottom: 20px;
+}
+
+/* Columns */
+
+.footer-col {
+  min-width: 0;
+}
+
+/* Brand column */
+
+.footer-logo {
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #020617;
+  margin-bottom: 10px;
+}
+
+.footer-logo span {
+  color: var(--accent);
+}
+
+.footer-blurb {
+  margin: 0;
+  max-width: 360px;
+  line-height: 1.6;
+}
+
+/* Links column */
+
+.footer-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 10px;
+}
+
+.footer-nav-legal {
+  margin-top: 6px;
+}
+
+.footer-nav a {
+  text-decoration: none;
+  color: #4b5563;
+}
+
+.footer-nav a:hover {
+  color: var(--primary-strong);
+}
+
+/* Meta column */
+
+.footer-company {
+  font-weight: 500;
+  color: #020617;
+  margin-bottom: 4px;
+}
+
+.footer-location {
+  margin-bottom: 4px;
+}
+
+.footer-email {
+  text-decoration: none;
+  color: #2563eb;
+  font-weight: 500;
+}
+
+.footer-email:hover {
+  text-decoration: underline;
+}
+
+/* Bottom strip -------------------------------------------------- */
+
+.footer-bottom {
+  border-top: 1px solid rgba(148, 163, 184, 0.4);
+  padding-top: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 12px;
+  color: #6b7280;
+}
+
+.footer-made strong {
+  font-weight: 600;
+}
+
+/* Desktop layout ------------------------------------------------ */
+
+@media (min-width: 880px) {
+  .footer-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 2.1fr) minmax(0, 1.1fr) minmax(0, 1.2fr);
+    gap: 40px;
+    align-items: flex-start;
+  }
+
+  .footer-bottom {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
