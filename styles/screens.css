@@ -1,125 +1,236 @@
-/* Screen stories ------------------------------------------------ */
+/* SCREENS / APP PREVIEW ---------------------------------------- */
+/* MOBILE FIRST */
+
+#screens {
+  padding: 40px 0 64px;
+}
+
+/* Centered header on mobile */
+#screens .section-header {
+  display: flex; /* override base .section-header */
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+
+  max-width: 360px;
+  margin: 0 auto 28px; /* horizontally center */
+  text-align: center;
+}
+
+#screens .section-title {
+  font-size: 24px;
+  letter-spacing: -0.04em;
+  font-weight: 650;
+  color: #020617;
+}
+
+#screens .section-sub {
+  margin-top: 4px;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #6b7280;
+}
+
+/* SCREEN HEADER ANIMATION -------------------------------------- */
+
+/* start hidden + slightly lowered */
+#screens .section-header.reveal .section-title,
+#screens .section-header.reveal .section-sub {
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+
+/* when IntersectionObserver adds .is-visible */
+#screens .section-header.reveal.is-visible .section-title {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.06s;
+}
+
+#screens .section-header.reveal.is-visible .section-sub {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.16s; /* comes in just after the title */
+}
+
+/* Each row (image + copy) – stacked on mobile ------------------ */
 
 .screen-section {
-  border-radius: var(--radius-lg);
-  background: var(--card);
-  box-shadow: var(--shadow-sm);
-  border: 1px solid rgba(148, 163, 184, 0.18);
-  padding: 18px 18px 18px;
-  margin-bottom: 22px;
-  position: relative;
-  overflow: hidden;
+  max-width: 380px;
+  margin: 0 auto 40px;
 }
 
-.screen-section::after {
-  content: "";
-  position: absolute;
-  right: -80px;
-  bottom: -80px;
-  width: 180px;
-  height: 180px;
-  border-radius: 999px;
-  background: radial-gradient(
-    circle,
-    rgba(129, 140, 248, 0.16),
-    transparent 70%
-  );
-  opacity: 0.7;
-  pointer-events: none;
-}
-
-.screen-layout {
-  display: grid;
-  grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.9fr);
-  gap: 26px;
-  align-items: center;
-}
-
+.screen-layout,
 .screen-layout.reverse {
-  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.2fr);
+  display: flex;
+  flex-direction: column; /* image + text stacked */
+  align-items: center;
+  text-align: center;
+  row-gap: 20px;
 }
+
+/* IMAGE -------------------------------------------------------- */
 
 .screen-shot,
 .screen-shot-duo {
   position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
+/* soft floating halo under phones */
+.screen-shot::before,
+.screen-shot-duo::before {
+  content: "";
+  position: absolute;
+  bottom: -6px;
+  width: 68%;
+  height: 18px;
+  border-radius: 999px;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(15, 23, 42, 0.12),
+    transparent 70%
+  );
+  filter: blur(6px);
+  opacity: 0.55;
+  pointer-events: none;
+}
+
+/* single screenshot */
 .screen-shot img {
+  display: block;
   width: 100%;
-  border-radius: 30px;
-  box-shadow: 0 20px 50px rgba(15, 23, 42, 0.18);
-  transition: transform 0.22s ease, box-shadow 0.22s ease, filter 0.22s ease;
+  max-width: 260px;
+  height: auto;
+  border-radius: 32px;
 }
 
+/* duo screenshots */
 .screen-shot-duo {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
-  gap: 14px;
+  gap: 18px;
 }
 
 .screen-shot-duo img {
+  display: block;
   width: 100%;
+  max-width: 210px;
+  height: auto;
   border-radius: 28px;
-  box-shadow: 0 18px 42px rgba(15, 23, 42, 0.18);
-  transition: transform 0.22s ease, box-shadow 0.22s ease, filter 0.22s ease;
 }
 
-.screen-shot img:hover,
-.screen-shot-duo img:hover {
-  transform: translateY(-6px) scale(1.01);
-  box-shadow: 0 26px 80px rgba(15, 23, 42, 0.22);
-  filter: saturate(1.04);
+/* subtle float on hover (desktop users still get this) */
+.screen-shot img,
+.screen-shot-duo img {
+  transition: transform 0.22s ease, filter 0.22s ease;
 }
 
+.screen-section:hover .screen-shot img,
+.screen-section:hover .screen-shot-duo img {
+  transform: translateY(-4px);
+}
+
+/* COPY --------------------------------------------------------- */
+
+.screen-copy {
+  max-width: 360px;
+}
+
+/* tiny label, Stripe/Linear-style */
 .screen-copy-label {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  padding: 4px 9px;
+  padding: 4px 12px;
   border-radius: 999px;
-  background: #e0edff;
+  background: #f3f4ff;
+  color: #4f46e5;
   font-size: 11px;
-  color: #1d4ed8;
-  margin-bottom: 8px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  margin-bottom: 10px;
 }
 
 .screen-copy-label span {
-  width: 8px;
-  height: 8px;
+  width: 6px;
+  height: 6px;
   border-radius: 999px;
-  background: var(--accent);
+  background: #22c55e;
 }
 
+/* headline for each screen */
 .screen-copy h3 {
-  font-size: 18px;
-  margin: 0 0 6px;
+  margin: 0 0 8px;
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
 }
 
+/* web-style body copy */
 .screen-copy p {
-  font-size: 13px;
-  color: var(--text-muted);
   margin: 0;
-  max-width: 280px;
+  font-size: 14px;
+  line-height: 1.7;
+  color: #4b5563;
 }
 
-/* Screens – responsive ------------------------------------------ */
+/* DESKTOP / LARGE SCREENS ------------------------------------- */
+/* Enhance layout only when we have room */
 
-@media (max-width: 880px) {
-  .section-header {
-    flex-direction: column;
-    align-items: flex-start;
+@media (min-width: 880px) {
+  #screens {
+    padding: 56px 0 80px;
   }
 
-  .screen-layout,
+  #screens .section-header {
+    max-width: 560px; /* wider on desktop */
+    margin: 0 auto 32px; /* keep perfectly centered */
+  }
+
+  #screens .section-title {
+    font-size: 28px;
+  }
+
+  .screen-section {
+    max-width: 980px; /* narrower = more premium */
+    margin: 0 auto 56px;
+  }
+
+  .screen-layout {
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    column-gap: 40px; /* gap between image and text */
+    row-gap: 0;
+  }
+
   .screen-layout.reverse {
-    grid-template-columns: minmax(0, 1fr);
+    flex-direction: row-reverse;
   }
 
-  .screen-layout.reverse .screen-copy {
-    order: -1;
+  /* give both sides ~50/50 split */
+  .screen-shot,
+  .screen-shot-duo,
+  .screen-copy {
+    flex: 0 0 48%;
   }
 
-  .screen-copy p {
-    max-width: none;
+  .screen-copy {
+    max-width: 420px;
+    text-align: left;
+  }
+
+  .screen-shot::before,
+  .screen-shot-duo::before {
+    width: 70%;
+    height: 22px;
+  }
+
+  .screen-copy h3 {
+    font-size: 24px;
   }
 }
