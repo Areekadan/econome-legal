@@ -15,7 +15,6 @@
   box-shadow: 0 20px 60px rgba(15, 23, 42, 0.14);
   padding: 20px 18px 22px;
   display: flex;
-  /* overflow: hidden;  <-- removed so the phone isn't clipped */
 }
 
 /* Inner layout: text then device on mobile */
@@ -64,7 +63,7 @@
   width: 100%;
   max-width: min(240px, 65vw); /* slightly smaller on mobile */
   margin-top: 8px;
-  filter: drop-shadow(0 14px 40px rgba(15, 23, 42, 0.16)); /* softer */
+  filter: none; /* no shadow – blends with card */
 }
 
 .hero-device img {
@@ -106,7 +105,7 @@
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    gap: 48px; /* a bit tighter so phone stays inside card comfortably */
+    gap: 48px;
   }
 
   .hero-text {
@@ -124,8 +123,7 @@
   .hero-device {
     max-width: 340px; /* cap phone size on desktop */
     margin-top: 0;
-    filter: drop-shadow(0 18px 50px rgba(15, 23, 42, 0.16));
-    /* max-height: 70vh;  <-- removed so it doesn't squash/crop */
+    filter: none; /* still no shadow on desktop */
   }
 
   .hero-device img {
@@ -139,6 +137,6 @@
   }
 
   .hero-device {
-    max-width: 340px; /* keep same cap on very large screens */
+    max-width: 340px;
   }
 }

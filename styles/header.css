@@ -30,10 +30,10 @@ header {
   display: none;
 }
 
-/* logo image */
+/* logo image – larger by default */
 .brand-logo {
   display: block;
-  height: 28px;
+  height: 34px; /* was 28px */
   width: auto;
 }
 
@@ -49,7 +49,7 @@ header {
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  padding: 8px 18px; /* a bit shorter + narrower */
+  padding: 8px 18px;
   border-radius: 999px;
   background: #000;
   color: #fff;
@@ -64,7 +64,6 @@ header {
   box-shadow: 0 18px 40px rgba(0, 0, 0, 0.55);
 }
 
-/* Apple icon – slightly smaller so overall pill feels lighter */
 .nav-store-icon {
   font-size: 22px;
   width: 22px;
@@ -75,7 +74,6 @@ header {
   line-height: 0;
 }
 
-/* text stack */
 .nav-store-text {
   display: flex;
   flex-direction: column;
@@ -83,21 +81,19 @@ header {
   line-height: 1;
 }
 
-/* "Download on the" */
 .nav-store-eyebrow {
   font-size: 9px;
   font-weight: 500;
-  letter-spacing: 0.16em; /* wide, Apple-style */
+  letter-spacing: 0.16em;
   text-transform: uppercase;
   opacity: 0.9;
   margin-bottom: 2px;
 }
 
-/* "App Store" – tuned so width visually matches line above */
 .nav-store-label {
   font-size: 14px;
   font-weight: 600;
-  letter-spacing: 0.05em; /* slight stretch to match width */
+  letter-spacing: 0.05em;
 }
 
 /* --- DESKTOP / LARGE SCREENS ---------------------------------- */
@@ -106,7 +102,7 @@ header {
   header {
     justify-content: space-between;
     margin-bottom: 28px;
-    padding: 10px 18px;
+    padding: 12px 20px; /* tiny bump for bigger logo */
     border-radius: 999px;
     background: rgba(248, 250, 252, 0.94);
     border: 1px solid rgba(148, 163, 184, 0.35);
@@ -118,8 +114,9 @@ header {
     align-items: center;
   }
 
+  /* bigger logo on desktop */
   .brand-logo {
-    height: 34px; /* a bit larger on desktop */
+    height: 44px; /* was 34px */
     width: auto;
   }
 
@@ -187,7 +184,7 @@ header {
   }
 
   .nav-store-btn {
-    padding: 8px 20px; /* slightly denser on desktop */
+    padding: 8px 20px;
     box-shadow: 0 14px 32px rgba(15, 23, 42, 0.55);
   }
 
