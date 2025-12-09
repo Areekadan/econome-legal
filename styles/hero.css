@@ -129,6 +129,7 @@
 .hero-title {
   position: relative;
   overflow: hidden; /* keeps the falling motion clean */
+  padding-top: 3px;
 }
 
 .hero-word {
