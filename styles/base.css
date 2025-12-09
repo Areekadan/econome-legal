@@ -45,7 +45,6 @@ body {
   font-family: "Roboto", system-ui, -apple-system, BlinkMacSystemFont,
     "SF Pro Text", "Segoe UI", sans-serif;
   color: var(--text-main);
-  /* background: linear-gradient(180deg, #e6edff 0%, #f5f7ff 40%, #f9fbff 100%); */
   background: #ffffff;
 }
 
@@ -61,11 +60,13 @@ img {
   flex-direction: column;
 }
 
+/* Shell: mobile first ------------------------------------------- */
+
 .shell {
   width: 100%;
   max-width: 1100px;
   margin: 0 auto;
-  padding: 20px 16px 56px;
+  padding: 20px 16px 56px; /* tighter on mobile */
 }
 
 main {
@@ -76,19 +77,20 @@ main {
 /* Sections ------------------------------------------------------ */
 
 .section {
-  margin-bottom: 72px;
+  margin-bottom: 56px; /* slightly tighter on mobile */
 }
 
+/* mobile: stack header text, left aligned */
 .section-header {
   display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  gap: 16px;
-  margin-bottom: 22px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  margin-bottom: 20px;
 }
 
 .section-title {
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 560;
 }
 
@@ -154,14 +156,6 @@ main {
   transform: translateY(24px);
 }
 
-.reveal[data-reveal="left"] {
-  transform: translateX(-24px);
-}
-
-.reveal[data-reveal="right"] {
-  transform: translateX(24px);
-}
-
 .reveal.is-visible {
   opacity: 1;
   transform: translate(0, 0);
@@ -214,4 +208,33 @@ main {
   opacity: 1;
   transform: translateY(0);
   pointer-events: auto;
+}
+
+/* DESKTOP / LARGER SCREENS ------------------------------------- */
+
+@media (min-width: 880px) {
+  .shell {
+    padding: 28px 24px 72px;
+  }
+
+  .section {
+    margin-bottom: 80px;
+  }
+
+  .section-header {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 16px;
+    margin-bottom: 22px;
+  }
+
+  .section-title {
+    font-size: 20px;
+  }
+
+  .section-sub {
+    font-size: 13px;
+    max-width: 420px;
+  }
 }
