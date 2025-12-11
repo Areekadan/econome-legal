@@ -24,7 +24,12 @@
         margin: 0;
         font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
           "Segoe UI", sans-serif;
-        background: radial-gradient(circle at top left, #ecfdf3 0, #f9fafb 40%, #f3f4f6 100%);
+        background: radial-gradient(
+          circle at top left,
+          #ecfdf3 0,
+          #f9fafb 40%,
+          #f3f4f6 100%
+        );
         color: var(--text-main);
       }
 
@@ -42,8 +47,7 @@
         background: var(--bg-card);
         border-radius: 18px;
         padding: 28px 22px 32px;
-        box-shadow:
-          0 18px 45px rgba(15, 23, 42, 0.08),
+        box-shadow: 0 18px 45px rgba(15, 23, 42, 0.08),
           0 0 0 1px rgba(15, 23, 42, 0.02);
         border: 1px solid var(--border-subtle);
       }
@@ -176,7 +180,8 @@
           </div>
           <h1>EconoMe — Data Deletion &amp; Retention Policy</h1>
           <p class="subtitle">
-            How we retain, delete, and protect your data when you use the EconoMe app.
+            How we retain, delete, and protect your data when you use the
+            EconoMe app.
           </p>
           <p class="meta">
             <span>Version 1.0 — November 2025</span>
@@ -187,29 +192,34 @@
           <section>
             <h2><span class="section-number">1.</span> Introduction</h2>
             <p>
-              EconoMe Inc. (“EconoMe”, “we”, “our”, or “us”) is committed to protecting
-              user privacy and complying with applicable data privacy laws, including
-              PIPEDA (Canada), state and provincial privacy laws, and industry best
-              practices.
+              EconoMe Inc. (“EconoMe”, “we”, “our”, or “us”) is committed to
+              protecting user privacy and complying with applicable data privacy
+              laws, including Canadian privacy laws such as PIPEDA, relevant
+              U.S. state privacy laws, and industry best practices.
             </p>
             <p>
-              This policy explains how long we retain user data, how users may request
-              deletion of their data, and how we securely delete data stored within our
-              systems, including Firebase and third-party integrations such as Plaid.
+              This policy explains how long we retain user data, how users may
+              request deletion of their data, and how we securely delete data
+              stored within our systems, including Firebase and third-party
+              integrations such as Plaid. This policy applies to users in
+              Canada, the United States, and other supported regions.
             </p>
           </section>
 
           <section>
             <h2><span class="section-number">2.</span> Scope</h2>
             <p>
-              This policy applies to all personal and financial data processed by the
-              EconoMe mobile application, including:
+              This policy applies to all personal and financial data processed
+              by the EconoMe mobile application, including:
             </p>
             <ul>
               <li>User account information;</li>
               <li>Linked financial account metadata;</li>
               <li>Transactions retrieved via the Plaid API;</li>
-              <li>Budget items, spending categories, and other user-generated content; and</li>
+              <li>
+                Budget items, spending categories, and other user-generated
+                content; and
+              </li>
               <li>App usage data stored in Firebase.</li>
             </ul>
           </section>
@@ -217,19 +227,22 @@
           <section>
             <h2><span class="section-number">3.</span> Data Retention</h2>
             <p>
-              EconoMe retains user data only for as long as it is needed to provide core
-              budgeting and reporting functionality. Our retention standards are:
+              EconoMe retains user data only for as long as it is needed to
+              provide core budgeting and reporting functionality and for
+              legitimate business or legal purposes. Our retention standards
+              are:
             </p>
 
             <h3>3.1 User Accounts</h3>
             <ul>
               <li>
-                Account data is retained until the user requests account deletion or has
-                been inactive for 24 months.
+                Account data is retained until the user requests account
+                deletion or has been inactive for 24 months, after which we may
+                delete or anonymize the account in accordance with this policy.
               </li>
               <li>
-                Authentication logs in Firebase may be automatically retained by Google for
-                security and fraud-prevention purposes.
+                Authentication logs in Firebase may be automatically retained by
+                Google for security and fraud-prevention purposes.
               </li>
             </ul>
 
@@ -237,103 +250,111 @@
             <ul>
               <li>Plaid access tokens are stored securely in Firestore;</li>
               <li>
-                Transactions and account metadata are stored only as needed to support
-                budgeting, reporting, and historical insights;
+                Transactions and account metadata are stored only as needed to
+                support budgeting, reporting, and historical insights;
               </li>
-              <li>We do not store sensitive credentials (e.g., bank passwords).</li>
+              <li>
+                We do not store sensitive credentials (e.g., bank passwords).
+              </li>
             </ul>
 
             <h3>3.3 Transaction Data</h3>
             <ul>
               <li>
-                Transaction data is retained while the user maintains an active account.
+                Transaction data is retained while the user maintains an active
+                account.
               </li>
               <li>
-                Transaction data is deleted when the user requests account deletion, subject
-                to backup and log retention as described below.
+                Transaction data is deleted when the user requests account
+                deletion, subject to backup and log retention as described
+                below.
               </li>
             </ul>
 
             <h3>3.4 Logs &amp; System Data</h3>
             <ul>
               <li>
-                Error logs and crash reports may be retained for up to 90 days for
-                debugging and security monitoring.
+                Error logs and crash reports may be retained for up to 90 days
+                for debugging and security monitoring.
               </li>
             </ul>
           </section>
 
           <section>
             <h2><span class="section-number">4.</span> Data Deletion</h2>
-            <p>
-              Users may request deletion of their data at any time by:
-            </p>
+            <p>Users may request deletion of their data at any time by:</p>
             <ul>
               <li>Using in-app account deletion (where available); or</li>
               <li>
                 Requesting deletion by email at:
-                <a href="mailto:support@economeinc.com">support@economeinc.com</a>.
+                <a href="mailto:support@economeinc.com"
+                  >support@economeinc.com</a
+                >.
               </li>
             </ul>
-            <p>
-              Upon receiving a verified deletion request, we will:
-            </p>
+            <p>Upon receiving a verified deletion request, we will:</p>
             <ul>
               <li>
-                Delete user data (profile, budgets, transactions, linked accounts) from
-                Firestore within 48 hours;
+                Delete user data (profile, budgets, transactions, linked
+                accounts) from Firestore within approximately 48 hours;
               </li>
-              <li>Revoke Plaid access tokens immediately; and</li>
               <li>
-                Allow backups (if any) to be overwritten automatically according to Google
-                Cloud lifecycle policies, typically within up to 30 days, consistent with
-                Firebase’s retention behavior.
+                Revoke Plaid access tokens as part of the deletion process; and
+              </li>
+              <li>
+                Allow backups (if any) to be overwritten automatically according
+                to Google Cloud lifecycle policies, typically within up to 30
+                days, consistent with Firebase’s retention behavior.
               </li>
             </ul>
           </section>
 
           <section>
-            <h2><span class="section-number">5.</span> Secure Deletion Process</h2>
+            <h2>
+              <span class="section-number">5.</span> Secure Deletion Process
+            </h2>
             <p>
-              EconoMe relies on Firebase and Google Cloud’s secure deletion mechanisms,
-              which ensure that:
+              EconoMe relies on Firebase and Google Cloud’s secure deletion
+              mechanisms, which ensure that:
             </p>
             <ul>
               <li>
-                Data is permanently deleted using Google’s secure erasure standards once
-                it reaches the end of its lifecycle;
+                Data is permanently deleted using Google’s secure erasure
+                standards once it reaches the end of its lifecycle;
               </li>
               <li>
-                Deleted data is not accessible through the App or production systems; and
+                Deleted data is not accessible through the App or production
+                systems; and
               </li>
               <li>
-                Access to deleted content is removed from all active services and interfaces.
+                Access to deleted content is removed from all active services
+                and interfaces.
               </li>
             </ul>
             <p>
-              All verified deletion requests are recorded in an internal activity log for
-              accountability and audit purposes.
+              All verified deletion requests are recorded in an internal
+              activity log for accountability and audit purposes.
             </p>
           </section>
 
           <section>
             <h2><span class="section-number">6.</span> Data Minimization</h2>
-            <p>
-              EconoMe follows a strict data-minimization policy:
-            </p>
+            <p>EconoMe follows a strict data-minimization policy:</p>
             <ul>
               <li>
-                We collect only the data required to provide budgeting and financial
-                tracking functionality;
-              </li>
-              <li>We do not store unnecessary or unrelated financial information;</li>
-              <li>
-                We do not sell or share consumer data with third parties for marketing
-                purposes; and
+                We collect only the data required to provide budgeting and
+                financial tracking functionality;
               </li>
               <li>
-                We process Plaid and financial data solely to provide user-requested
-                features within the App.
+                We do not store unnecessary or unrelated financial information;
+              </li>
+              <li>
+                We do not sell or share consumer data with third parties for
+                marketing purposes; and
+              </li>
+              <li>
+                We process Plaid and financial data solely to provide
+                user-requested features within the App.
               </li>
             </ul>
           </section>
@@ -341,8 +362,8 @@
           <section>
             <h2><span class="section-number">7.</span> Questions</h2>
             <p>
-              If you have any questions about this Data Deletion &amp; Retention Policy, or
-              how your data is handled, please contact:
+              If you have any questions about this Data Deletion &amp; Retention
+              Policy, or how your data is handled, please contact:
             </p>
             <div class="contact-block">
               <strong>EconoMe Inc.</strong><br />
@@ -350,8 +371,9 @@
               <a href="mailto:support@economeinc.com">support@economeinc.com</a>
             </div>
             <p class="footer-note">
-              We may update this policy periodically to reflect changes in our practices or
-              legal requirements. Updated versions will be posted on this page.
+              We may update this policy periodically to reflect changes in our
+              practices or legal requirements. Updated versions will be posted
+              on this page.
             </p>
           </section>
         </main>
