@@ -1,0 +1,385 @@
+/* Page section */
+.waitlist-hero {
+  padding: 64px 0 48px;
+}
+
+/* Card that matches the “premium” look */
+.waitlist-hero-card {
+  border-radius: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.05);
+
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.35),
+    0 1px 0 rgba(255, 255, 255, 0.06) inset;
+
+  overflow: hidden;
+}
+
+.waitlist-hero-inner {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 28px;
+  padding: 28px;
+  align-items: center;
+}
+
+/* Left copy */
+.waitlist-copy {
+  padding: 10px 6px;
+}
+
+.waitlist-kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 12px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  font-size: 13px;
+  letter-spacing: 0.2px;
+  opacity: 0.95;
+}
+
+.waitlist-kicker-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background: #0d9bff;
+  box-shadow: 0 0 0 6px rgba(13, 155, 255, 0.12);
+}
+
+.waitlist-title {
+  margin: 16px 0 10px;
+  font-size: clamp(28px, 3.2vw, 42px);
+  line-height: 1.06;
+  letter-spacing: -0.6px;
+}
+
+.waitlist-sub {
+  margin: 0 0 18px;
+  opacity: 0.86;
+  line-height: 1.55;
+  max-width: 52ch;
+}
+
+/* Form */
+.waitlist-form {
+  margin-top: 14px;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 12px;
+  align-items: end;
+}
+
+.waitlist-field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.waitlist-label {
+  font-size: 12px;
+  opacity: 0.78;
+  letter-spacing: 0.2px;
+}
+
+.waitlist-form input {
+  width: 100%;
+  padding: 14px 14px;
+  font-size: 16px;
+  border-radius: 14px;
+
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  background: rgba(255, 255, 255, 0.06);
+  color: inherit;
+
+  box-shadow: 0 0 0 6px rgba(13, 155, 255, 0.28),
+    0 14px 36px rgba(13, 155, 255, 0.35);
+
+  outline: none;
+  transition: border-color 160ms ease, box-shadow 160ms ease,
+    background 160ms ease;
+}
+
+.waitlist-form input::placeholder {
+  opacity: 0.55;
+}
+
+.waitlist-form input:focus {
+  border-color: rgba(13, 155, 255, 0.55);
+  box-shadow: 0 0 0 6px rgba(13, 155, 255, 0.14);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.waitlist-btn {
+  padding: 14px 18px;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  cursor: pointer;
+
+  font-weight: 700;
+  letter-spacing: 0.2px;
+  background: linear-gradient(
+    180deg,
+    rgba(13, 155, 255, 1),
+    rgba(18, 96, 255, 1)
+  );
+  color: white;
+
+  box-shadow: 0 18px 40px rgba(13, 155, 255, 0.22),
+    0 1px 0 rgba(255, 255, 255, 0.18) inset;
+
+  transition: transform 140ms ease, box-shadow 140ms ease, filter 140ms ease;
+}
+
+.waitlist-btn:hover {
+  transform: translateY(-1px);
+  filter: brightness(1.02);
+  box-shadow: 0 22px 50px rgba(13, 155, 255, 0.26),
+    0 1px 0 rgba(255, 255, 255, 0.18) inset;
+}
+
+.waitlist-btn:active {
+  transform: translateY(0px);
+}
+
+/* Trust line */
+.waitlist-trust {
+  margin-top: 26px;
+  font-size: 13px;
+  opacity: 0.82;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+}
+
+.waitlist-check {
+  opacity: 0.95;
+}
+
+.waitlist-sep {
+  opacity: 0.45;
+}
+
+/* Perks */
+.waitlist-perks {
+  margin-top: 18px;
+  display: grid;
+  gap: 10px;
+  max-width: 560px;
+}
+
+.waitlist-perk {
+  display: grid;
+  grid-template-columns: 34px 1fr;
+  gap: 12px;
+  padding: 12px 12px;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.waitlist-perk-icon {
+  width: 34px;
+  height: 34px;
+  display: grid;
+  place-items: center;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.waitlist-perk-title {
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.waitlist-perk-sub {
+  margin-top: 2px;
+  font-size: 13px;
+  opacity: 0.78;
+  line-height: 1.35;
+}
+
+/* Right visual */
+.waitlist-visual {
+  position: relative;
+  min-height: 420px;
+  display: grid;
+  place-items: center;
+}
+
+.waitlist-device {
+  width: min(320px, 90%);
+  overflow: hidden;
+}
+
+.waitlist-device img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.waitlist-glow {
+  position: absolute;
+  width: 360px;
+  height: 360px;
+  border-radius: 999px;
+  background: radial-gradient(
+    circle,
+    rgba(13, 155, 255, 0.32),
+    rgba(13, 155, 255, 0)
+  );
+  filter: blur(12px);
+  z-index: -1;
+}
+
+/* Footer links */
+.waitlist-footer-links {
+  margin-top: 18px;
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+  opacity: 0.78;
+  font-size: 13px;
+}
+
+.waitlist-footer-links a {
+  text-decoration: none;
+  opacity: 0.92;
+}
+
+.waitlist-footer-links a:hover {
+  opacity: 1;
+}
+
+/* Responsive */
+@media (max-width: 980px) {
+  .waitlist-hero-inner {
+    grid-template-columns: 1fr;
+  }
+
+  .waitlist-visual {
+    min-height: 0;
+    padding-top: 10px;
+  }
+}
+
+@media (max-width: 520px) {
+  .waitlist-hero {
+    padding-top: 44px;
+  }
+
+  .waitlist-hero-inner {
+    padding: 18px;
+  }
+
+  .waitlist-form {
+    grid-template-columns: 1fr;
+  }
+
+  .waitlist-btn {
+    width: 100%;
+  }
+}
+
+/* =========================
+   THANK YOU PAGE POLISH
+   Drop-in additions
+   ========================= */
+
+/* Make the thanks layout feel tighter + more intentional */
+.waitlist-hero-inner-thanks {
+  grid-template-columns: 1.05fr 0.95fr;
+  align-items: center;
+  padding: 34px;
+  gap: 34px;
+}
+
+/* Slightly soften the kicker so it doesn’t feel like a “badge” */
+.waitlist-kicker {
+  background: rgba(255, 255, 255, 0.045);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Thanks page: tighten the trust line spacing */
+.waitlist-trust-thanks {
+  margin-top: 16px;
+  opacity: 0.84;
+}
+
+/* Actions row */
+.waitlist-actions {
+  margin-top: 18px;
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+/* Secondary button that still matches your premium style */
+.waitlist-btn-secondary {
+  background: rgba(255, 255, 255, 0.06);
+  color: inherit;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.22),
+    0 1px 0 rgba(255, 255, 255, 0.06) inset;
+}
+
+.waitlist-btn-secondary:hover {
+  transform: translateY(-1px);
+  filter: brightness(1.02);
+}
+
+.waitlist-btn-secondary:active {
+  transform: translateY(0px);
+}
+
+.waitlist-btn,
+.waitlist-btn-secondary {
+  text-decoration: none;
+}
+
+/* Note text styling */
+.waitlist-note-thanks {
+  margin-top: 26px;
+  font-size: 13px;
+  opacity: 0.82;
+}
+
+.waitlist-note-thanks a {
+  color: inherit;
+  opacity: 0.95;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* Responsive: keep it clean on small screens */
+@media (max-width: 980px) {
+  .waitlist-hero-inner-thanks {
+    padding: 22px;
+    gap: 18px;
+  }
+
+  .waitlist-device img {
+    width: min(340px, 92%);
+  }
+}
+
+@media (max-width: 520px) {
+  .waitlist-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .waitlist-actions .waitlist-btn {
+    width: 100%;
+    text-align: center;
+  }
+}
