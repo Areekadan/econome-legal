@@ -360,6 +360,13 @@
   text-underline-offset: 3px;
 }
 
+.hp-field {
+  position: absolute;
+  left: -9999px;
+  opacity: 0;
+  pointer-events: none;
+}
+
 /* Responsive: keep it clean on small screens */
 @media (max-width: 980px) {
   .waitlist-hero-inner-thanks {

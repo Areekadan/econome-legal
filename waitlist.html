@@ -95,6 +95,19 @@
                     action="https://formspree.io/f/mpqqzaog"
                     method="POST"
                   >
+                    <!-- Honeypot (spam bots fill this, humans never see it) -->
+                    <input
+                      type="text"
+                      name="_gotcha"
+                      class="hp-field"
+                      tabindex="-1"
+                      autocomplete="off"
+                      aria-hidden="true"
+                      aria-label="do not fill"
+                    />
+
+                    <input type="hidden" id="ts" name="ts" />
+
                     <div class="waitlist-field">
                       <label class="waitlist-label" for="email">Email</label>
                       <input
@@ -110,12 +123,6 @@
                     <button class="waitlist-btn" type="submit">
                       Join the waitlist
                     </button>
-
-                    <input
-                      type="hidden"
-                      name="_redirect"
-                      value="https://economeinc.com/thanks.html"
-                    />
 
                     <input
                       type="hidden"
@@ -189,5 +196,62 @@
         </main>
       </div>
     </div>
+    <!-- Intercept Formspree submit and redirect -->
+    <script>
+      const form = document.querySelector(".waitlist-form");
+
+      if (form) {
+        const button = form.querySelector('button[type="submit"]');
+        let isSubmitting = false;
+
+        // timestamp for spam protection
+        document.getElementById("ts").value = Date.now().toString();
+
+        form.addEventListener("submit", async (e) => {
+          e.preventDefault();
+          if (isSubmitting) return;
+          isSubmitting = true;
+
+          if (button) {
+            button.disabled = true;
+            button.textContent = "Joining...";
+          }
+
+          const data = new FormData(form);
+
+          // simple bot check (too fast = bot)
+          const ts = Number(data.get("ts"));
+          if (!ts || Date.now() - ts < 1200) {
+            alert("Please try again.");
+            isSubmitting = false;
+            button.disabled = false;
+            button.textContent = "Join the waitlist";
+            return;
+          }
+
+          try {
+            const response = await fetch(form.action, {
+              method: "POST",
+              body: data,
+              headers: { Accept: "application/json" },
+            });
+
+            if (response.ok) {
+              form.reset(); // IMPORTANT
+              window.location.href = "/thanks.html";
+            } else {
+              throw new Error("Submission failed");
+            }
+          } catch (err) {
+            alert("Something went wrong. Please try again.");
+            isSubmitting = false;
+            if (button) {
+              button.disabled = false;
+              button.textContent = "Join the waitlist";
+            }
+          }
+        });
+      }
+    </script>
   </body>
 </html>
