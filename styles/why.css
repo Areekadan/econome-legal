@@ -18,7 +18,7 @@
   font-size: 14px;
   color: var(--text-muted);
   line-height: 1.5;
-  margin-bottom: 6px;
+  margin-bottom: 0px;
 }
 
 .testimonial-quote strong {
@@ -26,6 +26,7 @@
 }
 
 .testimonial-source {
+  margin-top: 6px;
   font-size: 12px;
   color: var(--text-soft);
 }
@@ -50,7 +51,9 @@
 
 /* wrapper that used to be inline style */
 .testimonial-metric-wrap {
-  margin-top: 8px;
+  margin-top: 0;
+  display: grid;
+  gap: 6px;
 }
 
 .testimonial-metric {
@@ -75,9 +78,13 @@
 
 @media (min-width: 720px) {
   .testimonial {
-    grid-template-columns: minmax(0, 2.1fr) minmax(0, 1.1fr);
-    gap: 16px;
+    grid-template-columns: minmax(0, 1fr) max-content;
+    column-gap: 18px;
     align-items: center;
+  }
+
+  .testimonial-metric-wrap {
+    max-width: 360px;
   }
 }
 
@@ -90,15 +97,30 @@
   background: rgba(255, 255, 255, 0.98);
   border: 1px solid #dbe3ff;
   display: flex;
-  flex-direction: column; /* stack on mobile */
-  align-items: flex-start;
-  gap: 8px;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
   box-shadow: var(--shadow-sm);
+}
+
+.cta-content {
+  flex: 1 1 320px;
+  min-width: 0;
+}
+
+.cta-actions {
+  flex: 0 0 auto;
+}
+
+.cta-actions .btn {
+  white-space: nowrap;
 }
 
 .cta-text {
   font-size: 14px;
   color: var(--text-main);
+  margin-bottom: 4px;
 }
 
 .cta-sub {
